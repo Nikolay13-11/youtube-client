@@ -10,7 +10,7 @@
       ],
       "parserOptions": {
         "project": [
-          "youtube-client/tsconfig.json"
+          "./**/tsconfig.json"
         ],
         "createDefaultProgram": true
       },
