@@ -1,4 +1,5 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import Item from '../../models/item';
 
 @Component({
   selector: 'app-search-item',
@@ -7,6 +8,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SearchItemComponent implements OnInit {
+    @Input() item?: Item;
     title = ''
   constructor() { }
 
