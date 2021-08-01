@@ -7,10 +7,12 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SortComponent implements OnInit {
+    title = ''
 
   constructor() { }
 
   ngOnInit(): void {
+      this.title = 'Search'
   }
 
 }
