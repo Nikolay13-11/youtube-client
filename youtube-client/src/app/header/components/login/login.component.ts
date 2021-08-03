@@ -1,18 +1,13 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
-    title = ''
+export class LoginComponent  {
 
   constructor() { }
 
-  ngOnInit(): void {
-      this.title = 'Login'
-  }
 
 }
