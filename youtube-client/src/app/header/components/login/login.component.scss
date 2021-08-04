@@ -1,8 +1,9 @@
 .login_container {
     display: flex;
     align-items: center;
-    margin-left: auto;
-    margin-right: 3%;
+    position: fixed;
+    top: 23px;
+    right: 3%;
 }
 .login_btn {
     width: 24px;

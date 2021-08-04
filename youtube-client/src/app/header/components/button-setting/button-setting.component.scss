@@ -5,4 +5,7 @@
     border: none;
     cursor: pointer;
     filter: drop-shadow(2px 0px 4px #2f80ed);
+    position: fixed;
+    left: calc((100vw / 2) + 140px);
+    top: 23px;
 }
