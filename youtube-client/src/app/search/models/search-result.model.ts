@@ -1,6 +1,6 @@
 import { ISearchItem } from './search-item.model';
 
-export interface IsearchResult {
+export interface ISearchResult {
     kind: string;
     etag: string;
     pageInfo: {
