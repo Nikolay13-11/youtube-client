@@ -1,5 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
-import Items from '../../models/items';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-search-results',
@@ -7,16 +6,10 @@ import Items from '../../models/items';
   styleUrls: ['./search-results.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SearchResultsComponent implements OnInit {
-    @Input() items?: Items;
-
-    title = ''
+export class SearchResultsComponent  {
 
   constructor() {
   }
 
-  ngOnInit(): void {
-      this.title = 'Search result'
-  }
 
 }
