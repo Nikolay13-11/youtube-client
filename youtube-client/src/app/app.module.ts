@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {
@@ -13,22 +13,30 @@ import { SearchItemComponent } from './search/components/search-item/search-item
 import {
     SearchResultsComponent
 } from './search/components/search-results/search-results.component';
+import { StatisticComponent } from './search/components/statistic/statistic.component';
+
+
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    ButtonSettingComponent,
-    LoginComponent,
-    SearchResultsComponent,
-    SearchItemComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HeaderComponent,
+        ButtonSettingComponent,
+        LoginComponent,
+        SearchResultsComponent,
+        SearchItemComponent,
+        StatisticComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule,
+        RouterModule.forRoot([
+            { path: '', component: SearchResultsComponent },
+        ])
+
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
