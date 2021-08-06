@@ -13,6 +13,7 @@ import { SearchItemComponent } from './search/components/search-item/search-item
 import {
     SearchResultsComponent
 } from './search/components/search-results/search-results.component';
+import { SortComponent } from './search/components/sort/sort.component';
 import { StatisticComponent } from './search/components/statistic/statistic.component';
 
 
@@ -25,7 +26,8 @@ import { StatisticComponent } from './search/components/statistic/statistic.comp
         LoginComponent,
         SearchResultsComponent,
         SearchItemComponent,
-        StatisticComponent
+        StatisticComponent,
+        SortComponent
     ],
     imports: [
         BrowserModule,
