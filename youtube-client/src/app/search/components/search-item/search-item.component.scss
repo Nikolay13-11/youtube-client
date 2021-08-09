@@ -7,9 +7,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
 }
 
-img {
+.img_main_card {
     width: 223px;
     height: 123px;
     margin: 20px;
@@ -25,4 +26,40 @@ img {
 
 .border_red {
     border-bottom: 5px solid #eb5757;
+}
+.stat_container {
+    display: flex;
+}
+
+.stat_item {
+    display: flex;
+}
+
+.stat_block {
+    display: flex;
+    width: 202px;
+    height: 13px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+// .stat_item {
+//     img {
+//         width: 5px;
+//         height: 5px;
+//     }
+// }
+
+.item_container {
+    button {
+        width: 120px;
+        height: 32px;
+        background: #2f80ed;
+        border-radius: 5px;
+        filter: drop-shadow(2px 0px 4px #2f80ed);
+        border: none;
+    }
+    .name_video {
+        width: 223px;
+    }
 }

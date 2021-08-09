@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {
@@ -15,8 +15,6 @@ import {
 } from './search/components/search-results/search-results.component';
 import { SortComponent } from './search/components/sort/sort.component';
 import { StatisticComponent } from './search/components/statistic/statistic.component';
-
-
 
 @NgModule({
     declarations: [
@@ -33,10 +31,6 @@ import { StatisticComponent } from './search/components/statistic/statistic.comp
         BrowserModule,
         AppRoutingModule,
         ReactiveFormsModule,
-        RouterModule.forRoot([
-            { path: '', component: SearchResultsComponent },
-        ])
-
     ],
     providers: [],
     bootstrap: [AppComponent]

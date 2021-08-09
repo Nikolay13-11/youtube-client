@@ -1,5 +1,23 @@
 .sort_container {
-width: 100vw;
-height: 50px;
-background: rgb(207, 173, 170);
+    width: 100vw;
+    height: 50px;
+    background: rgb(207, 173, 170);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+a {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+    margin: 10px;
+}
+a:hover {
+    color: red;
+}
+
+input {
+    width: 149px;
+    height: 13px;
 }

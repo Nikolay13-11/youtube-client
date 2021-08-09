@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-sort',
@@ -6,13 +6,10 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./sort.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SortComponent implements OnInit {
-    title = ''
+export class SortComponent {
 
-  constructor() { }
-
-  ngOnInit(): void {
-      this.title = 'Search'
-  }
+ onNotify() {
+     console.log('all is good')
+ }
 
 }

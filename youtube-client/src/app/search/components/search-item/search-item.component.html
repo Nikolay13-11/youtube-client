@@ -3,9 +3,27 @@
    border_green: differenceDate(item.snippet.publishedAt) < 30 && differenceDate(item.snippet.publishedAt) > 7,
    border_red: differenceDate(item.snippet.publishedAt) > 183
 }">
-        <img src="{{item.snippet.thumbnails.default.url}}" alt="">
+        <img class="img_main_card" src="{{item.snippet.thumbnails.medium.url}}" alt="">
+        <div class="stat_block">
+            <div class="stat_item">
+                <img src="../../../../assets/icons/viewed.svg" alt="">
+                <p>{{item.statistics.viewCount}}</p>
+            </div>
+            <div class="stat_item">
+                <img src="../../../../assets/icons/liked.svg" alt="">
+                <p>{{item.statistics.likeCount}}</p>
+            </div>
+            <div class="stat_item">
+                <img src="../../../../assets/icons/dislike.svg" alt="">
+                <p>{{item.statistics.dislikeCount}}</p>
+            </div>
+            <div class="stat_item">
+                <img src="../../../../assets/icons/comments.svg" alt="">
+                <p>{{item.statistics.commentCount}}</p>
+            </div>
+        </div>
         <!-- <app-statistic></app-statistic> -->
-        <p>{{item.snippet.title}}</p>
+        <p class="name_video">{{item.snippet.title}}</p>
         <button>more...</button>
     </div>
     <div>
