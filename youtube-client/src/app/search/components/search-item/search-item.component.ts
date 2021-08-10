@@ -11,12 +11,6 @@ import { response } from 'src/app/response';
 export class SearchItemComponent {
 
     form = response.items;
-    differenceDate = (publish:string) => {
-        let date:any = new Date;
-        let publishDate:any = new Date(publish)
-        return Math.floor(Number((date - publishDate)/86400000))
-    }
-
-
+    cont!:number;
 
 }

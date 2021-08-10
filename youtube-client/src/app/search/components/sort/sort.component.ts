@@ -8,8 +8,4 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 })
 export class SortComponent {
 
- onNotify() {
-     console.log('all is good')
- }
-
 }

@@ -8,8 +8,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 })
 export class SearchResultsComponent  {
 
-    onNotify() {
-        console.log('hello')
-    }
+
 
 }

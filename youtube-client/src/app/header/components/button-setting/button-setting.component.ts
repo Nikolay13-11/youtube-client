@@ -6,7 +6,12 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./button-setting.component.scss']
 })
 export class ButtonSettingComponent  {
-@Output() notify  = new EventEmitter();
+    SortState = false;
+@Output() ToggleSortPanelEvent  = new EventEmitter();
 
+public ToggleSortPanelActive() {
+    this.SortState = !this.SortState;
+    this.ToggleSortPanelEvent.emit(this.SortState)
+}
 
 }

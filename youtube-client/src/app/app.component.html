@@ -1,2 +1,3 @@
-<app-header></app-header>
+<app-header (EventFromHeader)="tst($event)"></app-header>
+<app-sort *ngIf="b"></app-sort>
 <router-outlet></router-outlet>

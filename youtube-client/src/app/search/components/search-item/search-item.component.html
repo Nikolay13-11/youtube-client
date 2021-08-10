@@ -1,9 +1,6 @@
-<div *ngFor="let item of form" class="item_container" [ngClass]="{
-   border_blue: differenceDate(item.snippet.publishedAt) < 7,
-   border_green: differenceDate(item.snippet.publishedAt) < 30 && differenceDate(item.snippet.publishedAt) > 7,
-   border_red: differenceDate(item.snippet.publishedAt) > 183
-}">
+<div *ngFor="let item of form; let i = index"  class="item_container" appChangeBorderColor>
         <img class="img_main_card" src="{{item.snippet.thumbnails.medium.url}}" alt="">
+
         <div class="stat_block">
             <div class="stat_item">
                 <img src="../../../../assets/icons/viewed.svg" alt="">
@@ -29,3 +26,10 @@
     <div>
     </div>
 
+    <!-- appChangeBorderColor -->
+
+    <!--  [ngClass]="{
+        border_blue: differenceDate(item.snippet.publishedAt) < 7,
+        border_green: differenceDate(item.snippet.publishedAt) < 30 && differenceDate(item.snippet.publishedAt) > 7,
+        border_red: differenceDate(item.snippet.publishedAt) > 183
+     } -->

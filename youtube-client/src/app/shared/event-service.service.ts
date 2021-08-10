@@ -1,9 +1,13 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class EventService {
+export class ShareService {
+    private clickCnt:boolean = false;
+    onClick:EventEmitter<boolean> = new EventEmitter();
 
-  constructor() { }
+    public doClick(){
+      this.clickCnt = true;
+      this.onClick.emit(this.clickCnt);
+    }
 }
+
+

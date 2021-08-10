@@ -15,6 +15,7 @@ import {
 } from './search/components/search-results/search-results.component';
 import { SortComponent } from './search/components/sort/sort.component';
 import { StatisticComponent } from './search/components/statistic/statistic.component';
+import { ChangeBorderColorDirective } from './shared/directives/change-border-color.directive';
 
 @NgModule({
     declarations: [
@@ -25,7 +26,8 @@ import { StatisticComponent } from './search/components/statistic/statistic.comp
         SearchResultsComponent,
         SearchItemComponent,
         StatisticComponent,
-        SortComponent
+        SortComponent,
+        ChangeBorderColorDirective
     ],
     imports: [
         BrowserModule,
@@ -33,6 +35,9 @@ import { StatisticComponent } from './search/components/statistic/statistic.comp
         ReactiveFormsModule,
     ],
     providers: [],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+    exports: [
+      ChangeBorderColorDirective
+    ]
 })
 export class AppModule { }

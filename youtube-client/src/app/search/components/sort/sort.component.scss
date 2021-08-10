@@ -1,7 +1,7 @@
 .sort_container {
     width: 100vw;
     height: 50px;
-    background: rgb(207, 173, 170);
+    background: #e5e5e5;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -13,11 +13,17 @@ a {
     text-decoration: underline;
     margin: 10px;
 }
+
+.sort_by_word {
+    color: blue;
+    margin: 10px;
+}
+
 a:hover {
     color: red;
 }
 
 input {
     width: 149px;
-    height: 13px;
+    height: 16px;
 }
