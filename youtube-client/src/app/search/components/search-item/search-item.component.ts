@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Output } from '@angular/core';
 
 import { response } from 'src/app/response';
 
@@ -12,5 +12,10 @@ export class SearchItemComponent {
 
     form = response.items;
     cont!:number;
+    @Output() publicDate?:string;
+
+    getDate(date:string):void {
+        this.publicDate = date;
+    }
 
 }

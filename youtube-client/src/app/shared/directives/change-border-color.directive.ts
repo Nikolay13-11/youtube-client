@@ -5,42 +5,28 @@ import { Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
 })
 export class ChangeBorderColorDirective implements OnInit {
     // cards = response.items[this.elRef.snippet.publishedAt]
-    i:number = 2;
-    currentDate = new Date();
+    i:number = 4;
+    currentDate:any = new Date();
     @Input() public publicDate!: string;
 
   constructor(private renderer: Renderer2, private elRef: ElementRef) {
-      console.log(elRef.nativeElement);
   }
-
-
 
   ngOnInit():void {
-    console.log(this.publicDate)
+      let publishedDate:any = new Date(this.publicDate);
+      let differenceBetweenDate = Math.floor(Number((this.currentDate - publishedDate)/86400000));
 
-    if ( this.i > 3) {
+    if ( differenceBetweenDate < 7) {
         this.renderer.setStyle(this.elRef.nativeElement, 'borderBottom', '5px solid #27ae60');
     }
-    if ( this.i < 3) {
+    if ( differenceBetweenDate > 7 && differenceBetweenDate <= 31) {
         this.renderer.setStyle(this.elRef.nativeElement, 'borderBottom', '5px solid #2f80ed');
     }
-    if ( this.i = 3) {
-        this.renderer.setStyle(this.elRef.nativeElement, 'borderBottom', '5px solid #eb5757');
+    if ( differenceBetweenDate > 31 && differenceBetweenDate < 183) {
+        this.renderer.setStyle(this.elRef.nativeElement, 'borderBottom', '5px solid #F2C94C');
+    }
+    if ( differenceBetweenDate >= 183) {
+        this.renderer.setStyle(this.elRef.nativeElement, 'borderBottom', '5px solid #EB5757');
     }
   }
-
-
 }
-
-
-//   [ngClass]="{
-//     border_blue: differenceDate(item.snippet.publishedAt) < 7,
-//     border_green: differenceDate(item.snippet.publishedAt) < 30 && differenceDate(item.snippet.publishedAt) > 7,
-//     border_red: differenceDate(item.snippet.publishedAt) > 183
-//  }
-
-// differenceDate = (publish:string) => {
-//     let date:any = new Date;
-//     let publishDate:any = new Date(publish)
-//     return Math.floor(Number((date - publishDate)/86400000))
-// }

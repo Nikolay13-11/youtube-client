@@ -16,6 +16,8 @@ import {
 import { SortComponent } from './search/components/sort/sort.component';
 import { StatisticComponent } from './search/components/statistic/statistic.component';
 import { ChangeBorderColorDirective } from './shared/directives/change-border-color.directive';
+import { SortByButtonPipe } from './shared/pipes/sort-by-button.pipe';
+import { SortByInputPipe } from './shared/pipes/sort-by-input.pipe';
 
 @NgModule({
     declarations: [
@@ -27,7 +29,9 @@ import { ChangeBorderColorDirective } from './shared/directives/change-border-co
         SearchItemComponent,
         StatisticComponent,
         SortComponent,
-        ChangeBorderColorDirective
+        ChangeBorderColorDirective,
+        SortByButtonPipe,
+        SortByInputPipe
     ],
     imports: [
         BrowserModule,
