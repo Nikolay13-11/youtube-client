@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-export type SortOrder = 'asc' | 'desc'
+export type SortOrder = 'asc' | 'desc';
 
 
 @Pipe({
@@ -15,6 +15,8 @@ export class SortByButtonPipe implements PipeTransform {
 
     let numberArray = [];
     let stringArray = [];
+
+
   }
 
 }
