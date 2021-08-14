@@ -1,6 +1,8 @@
-import { ChangeDetectionStrategy, Component, Output } from '@angular/core';
-import { response } from 'src/app/response';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
+import { Observable } from 'rxjs';
+import { response } from 'src/app/response';
+import { SortParamsService } from 'src/app/shared/services/sort-params.service';
 
 @Component({
     selector: 'app-search-item',
@@ -8,16 +10,23 @@ import { response } from 'src/app/response';
     styleUrls: ['./search-item.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SearchItemComponent {
+export class SearchItemComponent implements OnInit{
 
     form = response.items;
     cont!: number;
-    dirrection = 'asc';
-    sortKey = '';
-    @Output() publicDate?: string;
+    dirrection$?: Observable<any>;
+    type$?: Observable<any>;
 
-    getDate(date: string): void {
-        this.publicDate = date;
+    constructor(private sortServise:SortParamsService) {}
+
+    getI() {
+        this.dirrection$ = this.sortServise.sharedsortDirection
+        this.type$ = this.sortServise.sharedsortType
     }
+
+    ngOnInit() {
+       this.getI()
+    }
+
 
 }

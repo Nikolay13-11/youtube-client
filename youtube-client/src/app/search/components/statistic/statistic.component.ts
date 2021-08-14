@@ -8,6 +8,8 @@ import { response } from 'src/app/response';
     styleUrls: ['./statistic.component.scss']
 })
 export class StatisticComponent {
+
+
     items = response.items
 
 }

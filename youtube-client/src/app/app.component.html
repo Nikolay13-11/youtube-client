@@ -1,3 +1,4 @@
 <app-header (EventFromHeader)="tst($event)"></app-header>
-<app-sort *ngIf="b"></app-sort>
+<app-sort *ngIf="b" (sort)="test2()"></app-sort>
+<!-- <app-search-results></app-search-results> -->
 <router-outlet></router-outlet>

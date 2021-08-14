@@ -18,6 +18,7 @@ import { StatisticComponent } from './search/components/statistic/statistic.comp
 import { ChangeBorderColorDirective } from './shared/directives/change-border-color.directive';
 import { SortByButtonPipe } from './shared/pipes/sort-by-button.pipe';
 import { SortByInputPipe } from './shared/pipes/sort-by-input.pipe';
+import { SortParamsService } from './shared/services/sort-params.service';
 
 @NgModule({
     declarations: [
@@ -38,8 +39,8 @@ import { SortByInputPipe } from './shared/pipes/sort-by-input.pipe';
         AppRoutingModule,
         ReactiveFormsModule,
     ],
-    providers: [],
-    bootstrap: [AppComponent],
+    providers: [ SortParamsService ],
+    bootstrap: [ AppComponent ],
     exports: [
       ChangeBorderColorDirective
     ]

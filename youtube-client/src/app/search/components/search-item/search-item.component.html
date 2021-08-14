@@ -1,9 +1,7 @@
-<div *ngFor="let item of form | sortByButton:'{{dirrection}}'" class="item_container" appChangeBorderColor
+<div *ngFor="let item of form | sortByButton:(dirrection$ | async):(type$ | async)" class="item_container" appChangeBorderColor
     publicDate="{{item.snippet.publishedAt}}">
     <img class="img_main_card" src="{{item.snippet.thumbnails.medium.url}}" alt="">
-
     <div class="stat_block">
-        <p>{{dirrection}}</p>
         <div class="stat_item">
             <img src="../../../../assets/icons/viewed.svg" alt="">
             <p>{{item.statistics.viewCount}}</p>
@@ -21,7 +19,6 @@
             <p>{{item.statistics.commentCount}}</p>
         </div>
     </div>
-    <!-- <app-statistic></app-statistic> -->
     <p class="name_video">{{item.snippet.title}}</p>
     <button>more...</button>
 </div>
