@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 import { Observable } from 'rxjs';
 import { response } from 'src/app/response';
+import { FilterParamsSortService } from 'src/app/shared/services/filter-params-sort.service';
 import { SortParamsService } from 'src/app/shared/services/sort-params.service';
 
 @Component({
@@ -16,16 +17,22 @@ export class SearchItemComponent implements OnInit{
     cont!: number;
     dirrection$?: Observable<any>;
     type$?: Observable<any>;
+    input$?: Observable<any>;
 
-    constructor(private sortServise:SortParamsService) {}
+    constructor(private sortServise:SortParamsService, private filterService:FilterParamsSortService) {}
 
-    getI() {
+    getSortParams() {
         this.dirrection$ = this.sortServise.sharedsortDirection
         this.type$ = this.sortServise.sharedsortType
     }
 
+    getInputParams() {
+        this.input$ = this.filterService.sharedfilterInput
+    }
+
     ngOnInit() {
-       this.getI()
+       this.getSortParams()
+       this.getInputParams()
     }
 
 

@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
+import { FilterParamsSortService } from 'src/app/shared/services/filter-params-sort.service';
 import { SortParamsService } from 'src/app/shared/services/sort-params.service';
 
 @Component({
@@ -13,8 +14,7 @@ export class SortComponent {
 
     message:string | undefined;
 
-    constructor(private sortService:SortParamsService) {}
-
+    constructor(private sortService:SortParamsService, private filterService:FilterParamsSortService) {}
 
     changeDirection(type:string) {
         if(!this.message || this.message === "desc"){
@@ -34,6 +34,11 @@ export class SortComponent {
 
     sortByCount() {
         this.changeDirection('count')
+}
+
+inputSort(event:any) {
+    this.filterService.nextFilter(event.target.value)
+
 }
 
 }

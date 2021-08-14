@@ -1,4 +1,4 @@
-<div *ngFor="let item of form | sortByButton:(dirrection$ | async):(type$ | async)" class="item_container" appChangeBorderColor
+<div *ngFor="let item of form | sortByButton:(dirrection$ | async):(type$ | async) | sortByInput:(input$ | async)" class="item_container" appChangeBorderColor
     publicDate="{{item.snippet.publishedAt}}">
     <img class="img_main_card" src="{{item.snippet.thumbnails.medium.url}}" alt="">
     <div class="stat_block">
