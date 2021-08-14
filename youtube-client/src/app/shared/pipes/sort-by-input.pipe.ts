@@ -12,7 +12,6 @@ export class SortByInputPipe implements PipeTransform {
     }
     else {
         value.forEach(element => {
-            console.log((element.snippet.title).toLowerCase())
         });
 
        return value.filter(item => (item.snippet.title).toLowerCase().includes(filterValue.toLowerCase()))

@@ -1,15 +1,23 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 
+import { SearchStateService } from '../shared/services/search-state.service';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent  {
-@Output() EventFromHeader = new EventEmitter();
+@Output() EventSetting = new EventEmitter();
 
 
+constructor(private searchState: SearchStateService) {}
+
+    getSearchState(event: Event) {
+        event.preventDefault();
+        this.searchState.nextState(true)
+    }
     onNotify(event: any) {
-        this.EventFromHeader.emit(event)
+        this.EventSetting.emit(event)
     }
 }

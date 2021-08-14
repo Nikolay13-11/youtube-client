@@ -34,11 +34,11 @@ export class SortComponent {
 
     sortByCount() {
         this.changeDirection('count')
-}
+    }
 
-inputSort(event:any) {
+    inputSort(event:any) {
     this.filterService.nextFilter(event.target.value)
 
-}
+    }
 
 }

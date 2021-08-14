@@ -1,28 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { SearchStateService } from './shared/services/search-state.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-    b: any = false;
-    c:any = '';
+export class AppComponent implements OnInit{
+    stateSort: any = false;
+    stateMainSearch = false;
 
     message:string | undefined;
 
-    tst(a: any) {
-        this.b = a;
+    constructor(private stateService:SearchStateService) {}
+
+    ngOnInit() {
+        this.stateService.sharedState.subscribe(state => this.stateMainSearch = state)
     }
 
-
-    test2() {
-        if(!this.c || this.c === "desc"){
-            this.c = 'asc'
-        }
-        else {
-            this.c = 'desc'
-        }
-        console.log(this.c)
+    eventSort(state: any) {
+        this.stateSort = state;
     }
+
+    changeStateMainSearch() {
+        this.stateMainSearch = true
+    }
+
 }
