@@ -1,0 +1,38 @@
+.auth_container {
+    width: 344px;
+    height: 248px;
+    border-radius: 5px;
+    background: #f2f2f2;
+    margin: 50px auto;
+}
+
+.auth_container > * {
+    margin-left: 20px;
+}
+
+input {
+    width: 304px;
+    height: 37px;
+    background: #e0e0e0;
+    border: none;
+    margin-top: 10px;
+}
+
+.login_text {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21px;
+    color: #000000;
+}
+
+.login_form_button {
+    width: 124px;
+    height: 30px;
+    background: #2f80ed;
+    border-radius: 5px;
+    filter: drop-shadow(2px 0px 4px #2f80ed);
+    border: none;
+    margin-top: 20px;
+}

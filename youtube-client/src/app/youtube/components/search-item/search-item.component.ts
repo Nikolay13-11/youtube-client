@@ -2,8 +2,9 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 import { Observable } from 'rxjs';
 import { response } from 'src/app/response';
-import { FilterParamsSortService } from 'src/app/shared/services/filter-params-sort.service';
-import { SortParamsService } from 'src/app/shared/services/sort-params.service';
+import { FilterParamsSortService } from 'src/app/youtube/services/filter-params-sort.service';
+
+import { SortParamsService } from '../../services/sort-params.service';
 
 @Component({
     selector: 'app-search-item',

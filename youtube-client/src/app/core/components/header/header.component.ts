@@ -1,11 +1,12 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 
-import { SearchStateService } from '../shared/services/search-state.service';
+import { SearchStateService } from 'src/app/youtube/services/search-state.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
+
 })
 export class HeaderComponent  {
 @Output() EventSetting = new EventEmitter();

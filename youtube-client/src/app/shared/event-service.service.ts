@@ -9,5 +9,3 @@ export class ShareService {
       this.onClick.emit(this.clickCnt);
     }
 }
-
-
