@@ -19,7 +19,7 @@ export class SearchItemComponent implements OnInit{
     dirrection$?: Observable<any>;
     type$?: Observable<any>;
     input$?: Observable<any>;
-
+    a = '';
     constructor(private sortServise:SortParamsService, private filterService:FilterParamsSortService) {}
 
     getSortParams() {
@@ -34,6 +34,10 @@ export class SearchItemComponent implements OnInit{
     ngOnInit() {
        this.getSortParams()
        this.getInputParams()
+    }
+    t(event: Event) {
+        this.a = (event.target as HTMLElement).id
+        console.log(this.a)
     }
 
 

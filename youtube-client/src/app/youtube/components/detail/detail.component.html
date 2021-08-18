@@ -1,1 +1,30 @@
-<p>detail works!</p>
+<div class="container_detail">
+    <button class="button_back" [routerLink]="['/main']"></button>
+<div class="detail_card_container">
+    <img src="{{item.snippet.thumbnails.medium.url}}" alt="" class="detail_img">
+    <div class="detail_container">
+        <p class="title_detail">{{item.snippet.title}}</p>
+        <p class="public_date">{{item.snippet.publishedAt | date}}</p>
+        <p class="description">Description:</p>
+        <p class="description_text">{{item.snippet.description}}</p>
+        <div class="statistic_block">
+            <div class="statistic_item">
+            <img src="../../../../assets/icons/viewed.svg" alt="">
+            <p>{{item.statistics.viewCount}}</p>
+        </div>
+        <div class="statistic_item">
+            <img src="../../../../assets/icons/liked.svg" alt="">
+            <p>{{item.statistics.likeCount}}</p>
+        </div>
+        <div class="statistic_item">
+            <img src="../../../../assets/icons/dislike.svg" alt="">
+            <p>{{item.statistics.dislikeCount}}</p>
+        </div>
+        <div class="statistic_item">
+            <img src="../../../../assets/icons/comments.svg" alt="">
+            <p>{{item.statistics.commentCount}}</p>
+        </div>
+        </div>
+    </div>
+</div>
+</div>

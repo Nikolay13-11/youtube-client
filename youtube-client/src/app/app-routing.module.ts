@@ -6,7 +6,8 @@ import { ErrorPageComponent } from './core/components/error-page/error-page.comp
 const routes: Routes = [
     {
         path: '',
-        redirectTo: 'login'
+        redirectTo: 'login',
+        pathMatch: 'full'
     },
     // {
     //     path: '',
@@ -15,7 +16,12 @@ const routes: Routes = [
     {
         path: 'login',
         loadChildren: () => import('./auth/auth.module')
-        .then(m => m.AuthModule)
+        .then(m => m.AuthModule),
+    },
+    {
+        path: 'main',
+        loadChildren: () => import('./youtube/youtube.module')
+        .then(m => m.YoutubeModule),
     },
     {
         path: '**',
