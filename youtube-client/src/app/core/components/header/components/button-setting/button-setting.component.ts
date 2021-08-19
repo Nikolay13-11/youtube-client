@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-button-setting',
@@ -6,12 +6,12 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./button-setting.component.scss']
 })
 export class ButtonSettingComponent  {
-    SortState = false;
-@Output() ToggleSortPanelEvent  = new EventEmitter();
+//     SortState = false;
+// @Output() ToggleSortPanelEvent  = new EventEmitter();
 
-public ToggleSortPanelActive() {
-    this.SortState = !this.SortState;
-    this.ToggleSortPanelEvent.emit(this.SortState)
-}
+// public ToggleSortPanelActive() {
+//     this.SortState = !this.SortState;
+//     this.ToggleSortPanelEvent.emit(this.SortState)
+// }
 
 }

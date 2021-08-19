@@ -6,18 +6,13 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
-import {
-    ButtonSettingComponent
-} from './core/components/header/components/button-setting/button-setting.component';
-import { LoginComponent } from './core/components/header/components/login/login.component';
+import { LoginGuard } from './auth/guards/login.guard';
 import { CoreModule } from './core/core.module';
 import { YoutubeModule } from './youtube/youtube.module';
 
 @NgModule({
     declarations: [
         AppComponent,
-        ButtonSettingComponent,
-        LoginComponent,
     ],
     imports: [
         BrowserModule,
@@ -28,6 +23,7 @@ import { YoutubeModule } from './youtube/youtube.module';
         NoopAnimationsModule,
         AuthModule
     ],
+    providers: [LoginGuard],
     bootstrap: [ AppComponent ],
 })
 export class AppModule { }

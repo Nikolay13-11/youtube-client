@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { Observable } from 'rxjs';
 import { response } from 'src/app/response';
@@ -20,7 +21,10 @@ export class SearchItemComponent implements OnInit{
     type$?: Observable<any>;
     input$?: Observable<any>;
     a = '';
-    constructor(private sortServise:SortParamsService, private filterService:FilterParamsSortService) {}
+
+
+    constructor(private sortServise:SortParamsService, private filterService:FilterParamsSortService, private route: ActivatedRoute) {
+    }
 
     getSortParams() {
         this.dirrection$ = this.sortServise.sharedsortDirection
@@ -34,10 +38,13 @@ export class SearchItemComponent implements OnInit{
     ngOnInit() {
        this.getSortParams()
        this.getInputParams()
+
     }
     t(event: Event) {
         this.a = (event.target as HTMLElement).id
-        console.log(this.a)
+        // console.log(this.a)
+        // console.log(this.activateRoute.snapshot.params)
+
     }
 
 

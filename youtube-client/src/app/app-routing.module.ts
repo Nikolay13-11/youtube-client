@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { LoginGuard } from './auth/guards/login.guard';
 import { ErrorPageComponent } from './core/components/error-page/error-page.component';
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
         path: 'main',
         loadChildren: () => import('./youtube/youtube.module')
         .then(m => m.YoutubeModule),
+        canActivate: [LoginGuard]
     },
     {
         path: '**',

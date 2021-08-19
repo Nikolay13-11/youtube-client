@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { response } from 'src/app/response';
 
@@ -8,14 +9,21 @@ import { response } from 'src/app/response';
   styleUrls: ['./detail.component.scss'],
 })
 export class DetailComponent implements OnInit{
+    router:ActivatedRoute;
+
+    constructor(router:ActivatedRoute) {
+        this.router = router
+    }
 
     items = response.items;
-    id = 'YN8zNnV0sK8';
     item: any;
 
     ngOnInit() {
-        this.item = this.items.find(i => i.id === this.id)
+        const  { id }  = this.router.snapshot.params;
+        this.item = this.items.find(i => i.id === id);
     }
+
+
 
 
 
