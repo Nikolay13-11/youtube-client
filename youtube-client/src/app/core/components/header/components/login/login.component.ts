@@ -7,6 +7,14 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent  {
 
+    LogState = 'Login';
 
-
+    changeLogState() {
+        if(this.LogState === 'Login') {
+            this.LogState = 'Logout'
+        }
+        else if (this.LogState === 'Logout'){
+            this.LogState = 'Login'
+        }
+    }
 }
