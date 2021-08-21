@@ -21,10 +21,9 @@ export class SearchItemComponent implements OnInit{
     type$?: Observable<any>;
     input$?: Observable<any>;
     a = '';
+    g?:string
 
-
-    constructor(private sortServise:SortParamsService, private filterService:FilterParamsSortService, private route: ActivatedRoute) {
-    }
+    constructor(private sortServise:SortParamsService, private filterService:FilterParamsSortService, private route: ActivatedRoute) {}
 
     getSortParams() {
         this.dirrection$ = this.sortServise.sharedsortDirection
@@ -38,14 +37,9 @@ export class SearchItemComponent implements OnInit{
     ngOnInit() {
        this.getSortParams()
        this.getInputParams()
-
     }
+
     t(event: Event) {
         this.a = (event.target as HTMLElement).id
-        // console.log(this.a)
-        // console.log(this.activateRoute.snapshot.params)
-
     }
-
-
 }

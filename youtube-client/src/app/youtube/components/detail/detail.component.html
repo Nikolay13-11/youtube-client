@@ -1,6 +1,6 @@
 <div class="container_detail">
     <button class="button_back" [routerLink]="['/main']"></button>
-<div class="detail_card_container">
+<div class="detail_card_container"  appChangeBorderColor [publicDate]="item.snippet.publishedAt">
     <img src="{{item.snippet.thumbnails.maxres.url}}" alt="" class="detail_img">
     <div class="detail_container">
         <p class="title_detail">{{item.snippet.title}}</p>

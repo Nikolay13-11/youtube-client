@@ -6,14 +6,13 @@ import {
 
 import { Observable } from 'rxjs';
 
-import { Islogged } from '../helpers/helper';
+import { Islogged } from '../../shared/helpers/helper';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginGuard implements CanActivate, CanLoad {
     constructor (private router:Router) {}
-    state = false;
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {

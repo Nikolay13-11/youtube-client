@@ -10,7 +10,6 @@ import { ActivatedRoute } from '@angular/router';
 export class SearchResultsComponent  {
 constructor(router: ActivatedRoute) {
     const { id } = router.snapshot.params;
-    console.log(id)
 }
 
 

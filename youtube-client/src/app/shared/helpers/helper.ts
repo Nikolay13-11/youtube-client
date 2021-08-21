@@ -1,4 +1,3 @@
-
 export const generateToken = (nickName:string) => {
     const tokenWithoutName = Math.random().toString(36).substring(2);
     const token = `${nickName}-${tokenWithoutName}`;

@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Observable } from 'rxjs';
-import { ClearStorage } from 'src/app/auth/helpers/helper';
 import { AuthService } from 'src/app/auth/services/auth.service';
+import { ClearStorage } from 'src/app/shared/helpers/helper';
 import { SearchStateService } from 'src/app/youtube/services/search-state.service';
 
 @Component({

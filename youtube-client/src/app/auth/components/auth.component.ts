@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { addToStorage } from '../helpers/helper';
+import { addToStorage } from '../../shared/helpers/helper';
 import { ILogin } from '../models/login.model';
 import { AuthService } from '../services/auth.service';
 
