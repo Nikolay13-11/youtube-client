@@ -13,6 +13,7 @@ import { Islogged } from '../../shared/helpers/helper';
 })
 export class LoginGuard implements CanActivate, CanLoad {
     constructor (private router:Router) {}
+
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
@@ -24,6 +25,7 @@ export class LoginGuard implements CanActivate, CanLoad {
             return false
         }
   }
+
   canLoad(
     route: Route,
     segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {

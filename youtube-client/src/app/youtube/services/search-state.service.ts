@@ -8,12 +8,9 @@ import { BehaviorSubject } from 'rxjs';
 export class SearchStateService {
 
     private State = new BehaviorSubject(false);
-
     sharedState = this.State.asObservable()
 
-  constructor() { }
-
-  nextState(state:boolean) {
-    this.State.next(state)
-  }
+    nextState(state:boolean) {
+        this.State.next(state)
+    }
 }

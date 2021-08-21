@@ -5,16 +5,12 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class SortByInputPipe implements PipeTransform {
 
-  transform(value: any[], filterValue:string) {
+    transform(value: any[], filterValue:string) {
 
-    if (!filterValue) {
-        return value;
-    }
-    else {
-        value.forEach(element => {
-        });
+        if (!filterValue) {
+            return value;
+        }
 
-       return value.filter(item => (item.snippet.title).toLowerCase().includes(filterValue.toLowerCase()))
-    }
+        return value.filter(item => (item.snippet.title).toLowerCase().includes(filterValue.toLowerCase()))
     }
 }

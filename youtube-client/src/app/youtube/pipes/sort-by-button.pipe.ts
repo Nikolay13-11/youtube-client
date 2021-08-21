@@ -13,7 +13,6 @@ export class SortByButtonPipe implements PipeTransform {
         if (!value || (sortOrder !== 'asc' && sortOrder !== 'desc')) {
             return value;
         }
-
         if (sortOrder === 'asc') {
             return value.sort( (a: any, b: any):any => {
                 if (sortKey === 'date') {
@@ -27,7 +26,6 @@ export class SortByButtonPipe implements PipeTransform {
                 else return value;
             })
         }
-
         if (sortOrder === 'desc') {
             return value.sort( (a: any, b: any):any => {
                 if (sortKey === 'date') {
@@ -40,6 +38,6 @@ export class SortByButtonPipe implements PipeTransform {
                 }
                 else return value;
             })
+        }
     }
-}
 }

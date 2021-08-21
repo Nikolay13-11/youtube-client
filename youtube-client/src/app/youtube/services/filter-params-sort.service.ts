@@ -5,14 +5,13 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class FilterParamsSortService {
 
     private fiterInput = new BehaviorSubject('');
     sharedfilterInput = this.fiterInput.asObservable();
 
-  constructor() { }
-
-  nextFilter(input:string) {
-      this.fiterInput.next(input)
-  }
+    nextFilter(input:string) {
+        this.fiterInput.next(input)
+    }
 }

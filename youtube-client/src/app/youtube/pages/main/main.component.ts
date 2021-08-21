@@ -10,22 +10,20 @@ import { SortParamsService } from '../../services/sort-params.service';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })
+
 export class MainComponent implements OnInit{
 
     stateSearch = false;
-    stateSort = false;
-    test$?: Observable<boolean>;
+    stateSort$?: Observable<boolean>;
 
-  constructor(private steteFromService:SearchStateService, private stateFromSortService:SortParamsService) { }
+    constructor(private steteFromService:SearchStateService, private stateFromSortService:SortParamsService) { }
 
     updateStateSort() {
-        this.test$ = this.stateFromSortService.sharedsortPanelState;
+        this.stateSort$ = this.stateFromSortService.sharedsortPanelState;
     }
 
     ngOnInit() {
         this.updateStateSort()
         this.steteFromService.sharedState.subscribe(state => this.stateSearch = state);
     }
-
-
 }

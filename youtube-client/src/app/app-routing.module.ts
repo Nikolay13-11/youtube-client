@@ -10,10 +10,6 @@ const routes: Routes = [
         redirectTo: 'login',
         pathMatch: 'full'
     },
-    // {
-    //     path: '',
-    //     component: SearchResultsComponent,
-    // },
     {
         path: 'login',
         loadChildren: () => import('./auth/auth.module')

@@ -22,10 +22,4 @@ export class DetailComponent implements OnInit{
         const  { id }  = this.router.snapshot.params;
         this.item = this.items.find(i => i.id === id);
     }
-
-
-
-
-
-
 }

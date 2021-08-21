@@ -10,7 +10,6 @@ import { SearchStateService } from 'src/app/youtube/services/search-state.servic
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-//   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent implements OnInit {
 
@@ -47,7 +46,6 @@ export class LoginComponent implements OnInit {
             this.log.nextName('Your Name')
             this.log.nextButtonState('Login');
             this.state.nextState(false)
-
         }
     }
 }

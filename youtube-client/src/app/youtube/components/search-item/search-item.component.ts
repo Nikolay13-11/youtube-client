@@ -13,15 +13,13 @@ import { SortParamsService } from '../../services/sort-params.service';
     styleUrls: ['./search-item.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SearchItemComponent implements OnInit{
+
+export class SearchItemComponent implements OnInit {
 
     form = response.items;
-    cont!: number;
     dirrection$?: Observable<any>;
     type$?: Observable<any>;
     input$?: Observable<any>;
-    a = '';
-    g?:string
 
     constructor(private sortServise:SortParamsService, private filterService:FilterParamsSortService, private route: ActivatedRoute) {}
 
@@ -37,9 +35,5 @@ export class SearchItemComponent implements OnInit{
     ngOnInit() {
        this.getSortParams()
        this.getInputParams()
-    }
-
-    t(event: Event) {
-        this.a = (event.target as HTMLElement).id
     }
 }

@@ -12,22 +12,20 @@ import { SortParamsService } from '../../services/sort-params.service';
 })
 export class SortComponent {
 
-
-    message:string | undefined;
+    sortParam:string | undefined;
 
     constructor(private sortService:SortParamsService, private filterService:FilterParamsSortService) {}
 
     changeDirection(type:string) {
-        if(!this.message || this.message === "desc"){
-            this.message = 'asc'
+        if(!this.sortParam || this.sortParam === "desc"){
+            this.sortParam = 'asc'
             this.sortService.nextSort('asc', type)
         }
         else {
-            this.message = 'desc'
+            this.sortParam = 'desc'
             this.sortService.nextSort('desc', type)
         }
     }
-
 
     sortByDate() {
        this.changeDirection('date')
@@ -39,7 +37,5 @@ export class SortComponent {
 
     inputSort(event:any) {
     this.filterService.nextFilter(event.target.value)
-
     }
-
 }

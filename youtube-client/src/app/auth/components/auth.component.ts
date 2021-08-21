@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import { ILogin } from 'src/app/shared/models/login.model';
+
 import { addToStorage } from '../../shared/helpers/helper';
-import { ILogin } from '../models/login.model';
 import { AuthService } from '../services/auth.service';
 
 @Component({
