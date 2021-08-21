@@ -14,17 +14,11 @@ import { SearchStateService } from 'src/app/youtube/services/search-state.servic
 })
 export class LoginComponent implements OnInit {
 
-
     constructor(private router:Router, private log: AuthService, private state:SearchStateService) {}
     lofStateFromService$?: Observable<string>
     LogState = '';
     State$?:Observable<boolean>;
     UserName$?:Observable<string>
-
-
-    // changeLogState(event:Event) {
-    //     event.preventDefault()
-    // }
 
     checkState() {
         this.lofStateFromService$ = this.log.sharedButtonState;
@@ -42,6 +36,7 @@ export class LoginComponent implements OnInit {
         this.checkState()
         this.upgradeState()
         this.upgradeUserName()
+        this.log.nextName('Your Name')
     }
 
     logOut() {
