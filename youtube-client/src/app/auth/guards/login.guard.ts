@@ -6,6 +6,8 @@ import {
 
 import { Observable } from 'rxjs';
 
+import { Islogged } from '../helpers/helper';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -15,7 +17,7 @@ export class LoginGuard implements CanActivate, CanLoad {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-        if (this.state == true) {
+        if (Islogged()) {
             return true;
         }
         else {

@@ -1,7 +1,7 @@
 <div class="login_container">
-    <p>Your Name</p>
+    <p>{{UserName$ | async}}</p>
     <button class="login_btn"><img src="../../../../assets/images/login.png" alt=""></button>
-    <button class="log_btn" (click)="changeLogState()">{{LogState}}</button>
+    <button class="log_btn" (click)="logOut()">{{lofStateFromService$ | async}}</button>
 </div>
 
 

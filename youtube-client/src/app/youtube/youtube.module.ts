@@ -10,7 +10,6 @@ import { MainComponent } from './pages/main/main.component';
 import { SortByButtonPipe } from './pipes/sort-by-button.pipe';
 import { SortByInputPipe } from './pipes/sort-by-input.pipe';
 import { FilterParamsSortService } from './services/filter-params-sort.service';
-import { SortParamsService } from './services/sort-params.service';
 import { YoutubeRoutingModule } from './youtube-routing.module';
 
 @NgModule({
@@ -33,8 +32,7 @@ import { YoutubeRoutingModule } from './youtube-routing.module';
     MainComponent
   ],
   providers: [
-    SortParamsService,
-    FilterParamsSortService
+    FilterParamsSortService,
   ]
 })
 export class YoutubeModule { }

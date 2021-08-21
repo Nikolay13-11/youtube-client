@@ -16,6 +16,14 @@ input {
     background: #e0e0e0;
     border: none;
     margin-top: 10px;
+    outline: none;
+    border-radius: 10px;
+    &.ng-invalid.ng-touched {
+        border: 2px solid red;
+    }
+    &.ng-valid.ng-touched {
+        border: 2px solid green;
+    }
 }
 
 .login_text {

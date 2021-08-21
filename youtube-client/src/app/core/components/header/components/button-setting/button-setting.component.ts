@@ -1,17 +1,20 @@
 import { Component } from '@angular/core';
 
+import { SortParamsService } from 'src/app/youtube/services/sort-params.service';
+
 @Component({
   selector: 'app-button-setting',
   templateUrl: './button-setting.component.html',
   styleUrls: ['./button-setting.component.scss']
 })
 export class ButtonSettingComponent  {
-//     SortState = false;
-// @Output() ToggleSortPanelEvent  = new EventEmitter();
+    state = false
 
-// public ToggleSortPanelActive() {
-//     this.SortState = !this.SortState;
-//     this.ToggleSortPanelEvent.emit(this.SortState)
-// }
+    constructor(private sortPanelState: SortParamsService) {}
 
+    OpenPanel() {
+        this.state = !this.state
+        this.sortPanelState.nextPanelState(this.state)
+        console.log(this.state)
+    }
 }

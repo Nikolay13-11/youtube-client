@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -16,6 +16,7 @@ import { YoutubeModule } from './youtube/youtube.module';
     ],
     imports: [
         BrowserModule,
+        FormsModule,
         AppRoutingModule,
         ReactiveFormsModule,
         YoutubeModule,

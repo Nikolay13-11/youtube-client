@@ -1,2 +1,3 @@
-<app-search-results></app-search-results>
+<app-sort *ngIf="test$ | async"></app-sort>
+<app-search-results *ngIf="stateSearch"></app-search-results>
 <router-outlet></router-outlet>
