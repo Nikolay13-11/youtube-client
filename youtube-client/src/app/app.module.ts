@@ -1,4 +1,5 @@
-import { NgModule } from '@angular/core';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { NgModule, Provider } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -8,7 +9,14 @@ import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { LoginGuard } from './auth/guards/login.guard';
 import { CoreModule } from './core/core.module';
+import { FirstInterceptor } from './shared/interceptors/first.interceptor';
 import { YoutubeModule } from './youtube/youtube.module';
+
+const INTERCEPTOR_PROVIDER: Provider = {
+    provide: HTTP_INTERCEPTORS,
+    useClass: FirstInterceptor,
+    multi: true
+}
 
 @NgModule({
     declarations: [
@@ -22,9 +30,13 @@ import { YoutubeModule } from './youtube/youtube.module';
         YoutubeModule,
         CoreModule,
         NoopAnimationsModule,
-        AuthModule
+        AuthModule,
+        HttpClientModule,
     ],
-    providers: [LoginGuard],
+    providers: [
+        LoginGuard,
+        INTERCEPTOR_PROVIDER
+    ],
     bootstrap: [ AppComponent ],
 })
 export class AppModule { }
