@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { HttpService, Todo } from './shared/services/http.service';
+import { HttpYoutubeService } from './youtube/services/http-youtube.service';
 
 @Component({
   selector: 'app-root',
@@ -10,22 +10,29 @@ import { HttpService, Todo } from './shared/services/http.service';
 
 export class AppComponent implements OnInit {
 
-    todos: Todo[] = []
 
     loading = false
 
-    constructor(private todoService:HttpService) {}
+    constructor(private todoService:HttpYoutubeService) {}
+
 
     ngOnInit() {
-        this.fetchTodos()
+        // this.fetchTodos();
+        // this.fetchStatistic();
     }
 
     fetchTodos() {
-        this.loading = true
         this.todoService.fetchTodos()
-        .subscribe(todos => {
-            this.todos = todos
-            this.loading = false
+        .subscribe(item => {
+            console.log(item);
+
+        })
+    }
+    fetchStatistic() {
+        this.todoService.fetchStatistic()
+        .subscribe(item => {
+            console.log(item);
+
         })
     }
 }

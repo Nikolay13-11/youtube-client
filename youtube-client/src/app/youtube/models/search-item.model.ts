@@ -12,7 +12,7 @@ interface IStatisticSearchItem {
     commentCount: string;
 }
 
-interface ISearchItemSnippet {
+interface ISearchItemStatisticSnippet {
     publishedAt: string;
     channelId: string;
     title: string;
@@ -21,8 +21,6 @@ interface ISearchItemSnippet {
         default: IthumbnailsSearchItem;
         medium: IthumbnailsSearchItem;
         high: IthumbnailsSearchItem;
-        standard: IthumbnailsSearchItem;
-        maxres: IthumbnailsSearchItem;
     };
     channelTitle: string;
     tags: string[];
@@ -32,7 +30,21 @@ interface ISearchItemSnippet {
         title: string;
         description: string;
     };
-    defaultAudioLanguage: string;
+}
+
+interface ISearchItemSnippet {
+    publishedAt: string;
+    channelId: string;
+    title: string;
+    description: string;
+    thumbnails: {
+        default: IthumbnailsSearchItem;
+        medium: IthumbnailsSearchItem;
+        high: IthumbnailsSearchItem;
+    };
+    channelTitle: string;
+    liveBroadcastContent: string;
+    publishTime: string;
 }
 
 
@@ -40,7 +52,18 @@ interface ISearchItemSnippet {
 export interface ISearchItem {
     kind: string;
     etag: string;
-    id: string;
+    id: {
+        kind: string;
+        videoId: string;
+    };
     snippet: ISearchItemSnippet;
+    statistics: IStatisticSearchItem;
+}
+
+export interface IStatisticItem {
+    kind: string;
+    etag: string;
+    id: string;
+    snippet: ISearchItemStatisticSnippet;
     statistics: IStatisticSearchItem;
 }

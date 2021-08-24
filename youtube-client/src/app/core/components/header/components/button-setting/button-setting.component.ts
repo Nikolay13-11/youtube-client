@@ -15,6 +15,5 @@ export class ButtonSettingComponent  {
     OpenPanel() {
         this.state = !this.state
         this.sortPanelState.nextPanelState(this.state)
-        console.log(this.state)
     }
 }

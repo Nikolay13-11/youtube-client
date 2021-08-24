@@ -1,10 +1,7 @@
 <header class="header">
     <div class="left_container">
         <img src="../../assets/images/logo.png" class="logo" alt="logo">
-        <form action="" class="search_form">
-            <input type="text" class="input_search" placeholder="What are you want to find out?">
-            <input type="submit" value="search" class="submit_search"  (click)="getSearchState($event)">
-        </form>
+            <input type="text" class="input_search" placeholder="What are you want to find out?" [(value)]="test" (change)="next($event)">
         <app-button-setting></app-button-setting>
     </div>
     <app-login></app-login>

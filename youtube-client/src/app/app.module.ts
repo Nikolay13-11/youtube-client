@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { LoginGuard } from './auth/guards/login.guard';
 import { CoreModule } from './core/core.module';
-import { FirstInterceptor } from './shared/interceptors/first.interceptor';
+import { FirstInterceptor } from './core/interceptors/first.interceptor';
 import { YoutubeModule } from './youtube/youtube.module';
 
 const INTERCEPTOR_PROVIDER: Provider = {
