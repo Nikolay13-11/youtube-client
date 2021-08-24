@@ -1,20 +1,23 @@
 import { Injectable } from '@angular/core';
-
 import { BehaviorSubject } from 'rxjs';
 
+
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class InputSearchService {
 
     private inputSearch = new BehaviorSubject('');
 
-    sharedInputSearch = this.inputSearch.asObservable();
+    sharedInputSearch = this.inputSearch.asObservable()
 
-    newxtInputSearch(input:string) {
+    newxtInputSearch(input: string) {
         this.inputSearch.next(input)
         console.log(input);
-
     }
 
+    test(value: string) {
+        return value
+
+    }
 }

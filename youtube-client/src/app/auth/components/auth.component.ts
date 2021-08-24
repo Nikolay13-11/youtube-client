@@ -1,25 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
+import { InputSearchService } from 'src/app/core/services/input-search.service';
 import { ILogin } from 'src/app/shared/models/login.model';
-
 import { addToStorage } from '../../shared/helpers/helper';
 import { AuthService } from '../services/auth.service';
 
-@Component({
-  selector: 'app-auth',
-  templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.scss'],
-})
-export class AuthComponent implements OnInit{
 
-    constructor (private router:Router, private log: AuthService) {}
+
+@Component({
+    selector: 'app-auth',
+    templateUrl: './auth.component.html',
+    styleUrls: ['./auth.component.scss'],
+})
+export class AuthComponent implements OnInit {
+
+    constructor(private router: Router, private log: AuthService, private inputSearch: InputSearchService) { }
 
     form!: FormGroup;
-    userName:string = '';
-    password:string = '';
-    formValues?:ILogin;
+    userName: string = '';
+    password: string = '';
+    formValues?: ILogin;
 
     ngOnInit() {
         this.form = new FormGroup({
@@ -29,7 +30,7 @@ export class AuthComponent implements OnInit{
     }
 
     submit() {
-        this.formValues = {...this.form.value}
+        this.formValues = { ...this.form.value }
         let name = this.formValues?.userName
         addToStorage(name!.replace(/\s/g, ''))
         this.router.navigate(['/main'])
