@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 import {
     ButtonSettingComponent
@@ -8,8 +9,7 @@ import {
 import { LoginComponent } from './components/header/components/login/login.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CoreRoutingModule } from './core-routing.module';
-import { InputSearchService } from './services/input-search.service';
-
+import { FirstInterceptor } from './interceptors/first.interceptor';
 
 @NgModule({
     declarations: [
@@ -25,9 +25,9 @@ import { InputSearchService } from './services/input-search.service';
     ],
     exports: [
         HeaderComponent,
-    ],
+         ],
     providers: [
-        InputSearchService
+        FirstInterceptor
     ]
 })
 export class CoreModule { }

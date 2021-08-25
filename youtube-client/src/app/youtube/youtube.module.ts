@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+
+import { CoreModule } from '../core/core.module';
 import { DetailComponent } from './components/detail/detail.component';
 import { SearchItemComponent } from './components/search-item/search-item.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
@@ -10,8 +12,8 @@ import { SortByButtonPipe } from './pipes/sort-by-button.pipe';
 import { SortByInputPipe } from './pipes/sort-by-input.pipe';
 import { FilterParamsSortService } from './services/filter-params-sort.service';
 import { HttpYoutubeService } from './services/http-youtube.service';
+import { InputSearchService } from './services/input-search.service';
 import { YoutubeRoutingModule } from './youtube-routing.module';
-
 
 @NgModule({
     declarations: [
@@ -27,14 +29,16 @@ import { YoutubeRoutingModule } from './youtube-routing.module';
     ],
     imports: [
         CommonModule,
-        YoutubeRoutingModule
+        YoutubeRoutingModule,
+        CoreModule,
     ],
     exports: [
         MainComponent
     ],
     providers: [
         FilterParamsSortService,
-        HttpYoutubeService
+        HttpYoutubeService,
+        InputSearchService
     ]
 })
 export class YoutubeModule { }

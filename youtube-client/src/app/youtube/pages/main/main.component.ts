@@ -1,51 +1,50 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
 import { Observable, Subscription } from 'rxjs';
-import { InputSearchService } from 'src/app/core/services/input-search.service';
-import { HttpYoutubeService } from '../../services/http-youtube.service';
-import { SearchStateService } from '../../services/search-state.service';
+
+import { InputSearchService } from '../../services/input-search.service';
 import { SortParamsService } from '../../services/sort-params.service';
-
-
 
 @Component({
     selector: 'app-main',
     templateUrl: './main.component.html',
-    styleUrls: ['./main.component.scss']
+    styleUrls: ['./main.component.scss'],
+    // changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class MainComponent implements OnInit, OnDestroy {
+export class MainComponent implements OnInit{
 
     stateSearch = false;
     stateSort$?: Observable<boolean>;
     sub?: Subscription;
-    input?: Observable<string>
+    input$?: Observable<string>
     test!: string;
 
     constructor(
-        private steteFromService: SearchStateService,
+        // private steteFromService: SearchStateService,
         private stateFromSortService: SortParamsService,
-        private feth: HttpYoutubeService,
-        private inp: InputSearchService
+        // private feth: HttpYoutubeService,
+        private inp: InputSearchService,
     ) { }
+
+    ngOnInit() {
+        this.updateStateSort();
+        // this.upd()
+        // this.input$ = this.inp.sharedInputSearch;
+        this.inp.sharedInputSearch.subscribe(i => console.log(i))
+    }
 
     updateStateSort() {
         this.stateSort$ = this.stateFromSortService.sharedsortPanelState;
     }
 
-    ngOnInit() {
-        this.updateStateSort()
-        this.sub = this.steteFromService.sharedState.subscribe(state => this.stateSearch = state);
-        this.upd()
-    }
-
     upd() {
-        this.inp.sharedInputSearch.subscribe(i => this.test = i);
-        console.log(this.test);
-        this.feth.fetchTodos(this.test);
-    }
-
-    ngOnDestroy() {
-        this.sub?.unsubscribe()
+        // this.sub = this.inp.sharedInputSearch.subscribe(i =>{
+        //     console.log(i)
+        //     this.feth.fetchTodos(i)
+        //     .subscribe(i => console.log(i))
+        // }
+        // );
     }
 
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -10,14 +10,13 @@ export class InputSearchService {
     private inputSearch = new BehaviorSubject('');
 
     sharedInputSearch = this.inputSearch.asObservable()
+    // newxtInputSearch(input: string) {
+    //     this.inputSearch.next(input)
+    //     console.log(input);
+    // }
 
-    newxtInputSearch(input: string) {
-        this.inputSearch.next(input)
-        console.log(input);
-    }
-
-    test(value: string) {
+    nextInputSearch(value: string) {
+        this.inputSearch.next(value);
         return value
-
     }
 }
