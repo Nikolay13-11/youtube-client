@@ -4,7 +4,6 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { BaseUrlItems, BaseUrlStatistic } from 'src/app/core/constants/constants';
-import { InputSearchService } from 'src/app/youtube/services/input-search.service';
 
 import { IResultStatistic, ISearchResult } from '../models/search-result.model';
 
@@ -13,11 +12,11 @@ import { IResultStatistic, ISearchResult } from '../models/search-result.model';
 })
 export class HttpYoutubeService {
 
-    constructor(private http: HttpClient, private inputSearch: InputSearchService) { }
+    constructor(private http: HttpClient) { }
 
-    testInput() {
-        console.log(this.inputSearch.sharedInputSearch);
-    }
+    // testInput() {
+    //     console.log(this.inputSearch.sharedInputSearch);
+    // }
 
     fetchTodos(value: string): Observable<ISearchResult> {
         //   let params = new HttpParams()

@@ -31,7 +31,7 @@ export class MainComponent implements OnInit{
         this.updateStateSort();
         // this.upd()
         // this.input$ = this.inp.sharedInputSearch;
-        this.inp.sharedInputSearch.subscribe(i => console.log(i))
+        // this.inp.sharedInputSearch.subscribe(i => console.log(i))
     }
 
     updateStateSort() {
