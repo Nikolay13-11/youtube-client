@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 
 import { Subject, Subscription } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
@@ -12,7 +12,7 @@ import { InputSearchService } from '../../../youtube/services/input-search.servi
     styleUrls: ['./header.component.scss'],
 
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnDestroy{
 
     sub: Subscription;
     name: string = ''
@@ -30,20 +30,15 @@ export class HeaderComponent {
     }
 
     next(event: any) {
-        // this.test = event.target.value
-        // this.searchValue.next(event.target.value)
-        // console.log(event.target.value)
-        // this.inputService.newxtInputSearch(event)
         this.searchValue.next(event)
     }
-
-    // testM(event: any) {
-    //     console.log(this.name)
-    // }
-
 
     getSearchState(event: Event) {
         event.preventDefault();
         this.searchState.nextState(true)
+    }
+
+    ngOnDestroy() {
+        this.sub.unsubscribe()
     }
 }

@@ -28,8 +28,8 @@ export class DetailComponent implements OnInit, OnDestroy{
     ngOnInit() {
         this.updateResult();
         const  { id }  = this.router.snapshot.params;
-        this.items$?.subscribe(i => {
-        this.sub = this.item = i.find(i => i.id === id)
+        this.sub = this.items$?.subscribe(i => {
+        this.item = i.find(i => i.id === id)
         })
     }
 

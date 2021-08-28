@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 
 import { Observable, throwError } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
-import { ApiKey, ApiStatisticUrl, BaseUrlItems } from 'src/app/core/constants/constants';
 import { generateIdsList } from 'src/app/shared/helpers/helper';
 
 import { IResultStatistic, ISearchResult } from '../models/search-result.model';
@@ -12,19 +11,26 @@ import { IResultStatistic, ISearchResult } from '../models/search-result.model';
     providedIn: 'root'
 })
 export class HttpYoutubeService {
+    // ApiKey = 'AIzaSyBKAbqCLb7EN_kt7idMSUcilvkpNGa1_fQ';
+    BaseUrl = `https://www.googleapis.com/youtube/v3/search`;
 
     constructor(private http: HttpClient) { }
 
     serchResult!: any[];
+
     private fetchSearchResult(value:string): Observable<ISearchResult> {
-        return this.http.get<ISearchResult>(`${BaseUrlItems}`, {
+        return this.http.get<ISearchResult>(this.BaseUrl, {
             params: new HttpParams().set('q', value)
         })
     }
 
-    fetchSearchWithIds(idsValue: string): Observable<any> {
-        const URL = ApiStatisticUrl(ApiKey, idsValue)
-        return this.http.get<IResultStatistic>(URL)
+    fetchSearchWithIds(idsValue: string): Observable<IResultStatistic> {
+        let params = new HttpParams()
+        params = params.append('id', idsValue)
+        params = params.append('part', 'snippet,statistics')
+        return this.http.get<IResultStatistic>(this.BaseUrl, {
+            params
+        })
     }
 
     getSearchResults(value:string): Observable<any> {
@@ -37,60 +43,14 @@ export class HttpYoutubeService {
             ),
             map(
                 ((res:IResultStatistic) => {
-                    this.serchResult = res.items
-                    console.log(this.serchResult);
+                    this.serchResult = res.items;
                     return this.serchResult
                 })
             ),
             catchError(error => {
                 console.log('Error', error.message);
-                return throwError(error)
+                return throwError(error);
             })
         )
     }
-
-
-
-
-
-
-
-
-
-
-    // // testInput() {
-    // //     console.log(this.inputSearch.sharedInputSearch);
-    // // }
-
-    // fetchTodos(value: string): Observable<ISearchResult[]> {
-    //     //   let params = new HttpParams()
-    //     //   params = params.append('_limit', '5')
-    //     //   params = params.append('custom', 'anything')
-    //     return this.http.get<ISearchResult[]>(`${BaseUrlItems}${value}`)
-    //         // .pipe(
-    //         //     switchMap<string, Observable<any[]>>((i:s) => {
-    //         //         const serchResultIds:any = generateIdsList(i)
-
-    //         //     }),
-    //         //     // catchError(error => {
-    //         //     //     console.log('Error', error.message)
-    //         //     //     return throwError(error)
-    //         //     // })
-    //         // )
-    //     }
-
-    // fetchStatistic(): Observable<IResultStatistic> {
-    //     //   let params = new HttpParams()
-    //     //   params = params.append('_limit', '5')
-    //     //   params = params.append('custom', 'anything')
-
-    //     return this.http.get<IResultStatistic>(`${BaseUrlStatistic}`)
-    //         .pipe(
-    //             catchError(error => {
-    //                 console.log('Error', error.message)
-    //                 return throwError(error)
-    //             }))
-    // }
-
-
 }
