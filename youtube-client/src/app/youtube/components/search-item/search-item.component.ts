@@ -23,13 +23,12 @@ export class SearchItemComponent implements OnInit {
     constructor(
         private sortServise:SortParamsService,
         private filterService:FilterParamsSortService,
-        private items:InputSearchService
+        private items:InputSearchService,
         ) {}
 
     updateResult() {
         // this.items.sharedsearchResult.subscribe(i => console.log(i))
         this.form$ = this.items.sharedsearchResult
-
         console.log(this.form$)
     }
 

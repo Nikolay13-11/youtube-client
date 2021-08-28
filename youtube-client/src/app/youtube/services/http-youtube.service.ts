@@ -1,8 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { Observable } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import { catchError, map, switchMap } from 'rxjs/operators';
 import { ApiKey, ApiStatisticUrl, BaseUrlItems } from 'src/app/core/constants/constants';
 import { generateIdsList } from 'src/app/shared/helpers/helper';
 
@@ -17,7 +17,9 @@ export class HttpYoutubeService {
 
     serchResult!: any[];
     private fetchSearchResult(value:string): Observable<ISearchResult> {
-        return this.http.get<ISearchResult>(`${BaseUrlItems}${value}`)
+        return this.http.get<ISearchResult>(`${BaseUrlItems}`, {
+            params: new HttpParams().set('q', value)
+        })
     }
 
     fetchSearchWithIds(idsValue: string): Observable<any> {
@@ -39,7 +41,11 @@ export class HttpYoutubeService {
                     console.log(this.serchResult);
                     return this.serchResult
                 })
-            )
+            ),
+            catchError(error => {
+                console.log('Error', error.message);
+                return throwError(error)
+            })
         )
     }
 

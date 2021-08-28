@@ -9,12 +9,12 @@ import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { LoginGuard } from './auth/guards/login.guard';
 import { CoreModule } from './core/core.module';
-import { FirstInterceptor } from './core/interceptors/first.interceptor';
+import { HttpReqInterceptor } from './core/interceptors/http.interceptor';
 import { YoutubeModule } from './youtube/youtube.module';
 
 const INTERCEPTOR_PROVIDER: Provider = {
     provide: HTTP_INTERCEPTORS,
-    useClass: FirstInterceptor,
+    useClass: HttpReqInterceptor,
     multi: true
 }
 

@@ -37,7 +37,6 @@ import { YoutubeRoutingModule } from './youtube-routing.module';
     providers: [
         FilterParamsSortService,
         HttpYoutubeService,
-        // InputSearchService
     ]
 })
 export class YoutubeModule { }

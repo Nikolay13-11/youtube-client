@@ -9,7 +9,7 @@ import {
 import { LoginComponent } from './components/header/components/login/login.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CoreRoutingModule } from './core-routing.module';
-import { FirstInterceptor } from './interceptors/first.interceptor';
+import { HttpReqInterceptor } from './interceptors/http.interceptor';
 
 @NgModule({
     declarations: [
@@ -27,7 +27,7 @@ import { FirstInterceptor } from './interceptors/first.interceptor';
         HeaderComponent,
          ],
     providers: [
-        FirstInterceptor
+        HttpReqInterceptor
     ]
 })
 export class CoreModule { }
