@@ -74,7 +74,8 @@
 
 .description_text {
     width: 365px;
-    height: 260px;
+    height: 150px;
+    overflow-y: auto;
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;

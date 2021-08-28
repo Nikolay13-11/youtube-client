@@ -12,7 +12,6 @@ import { SortByButtonPipe } from './pipes/sort-by-button.pipe';
 import { SortByInputPipe } from './pipes/sort-by-input.pipe';
 import { FilterParamsSortService } from './services/filter-params-sort.service';
 import { HttpYoutubeService } from './services/http-youtube.service';
-import { InputSearchService } from './services/input-search.service';
 import { YoutubeRoutingModule } from './youtube-routing.module';
 
 @NgModule({
@@ -38,7 +37,7 @@ import { YoutubeRoutingModule } from './youtube-routing.module';
     providers: [
         FilterParamsSortService,
         HttpYoutubeService,
-        InputSearchService
+        // InputSearchService
     ]
 })
 export class YoutubeModule { }

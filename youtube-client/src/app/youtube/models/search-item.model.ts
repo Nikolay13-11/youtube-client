@@ -47,8 +47,6 @@ interface ISearchItemSnippet {
     publishTime: string;
 }
 
-
-
 export interface ISearchItem {
     kind: string;
     etag: string;

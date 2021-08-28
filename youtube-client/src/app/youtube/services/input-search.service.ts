@@ -15,23 +15,23 @@ export class InputSearchService {
     countOfLetters = 3;
 
     private inputSearch = new BehaviorSubject('');
+    private searchResult = new BehaviorSubject<Array<string>>([]);
+    // private searchResult = new BehaviorSubject('');
 
     sharedInputSearch = this.inputSearch.asObservable()
-    // newxtInputSearch(input: string) {
-    //     this.inputSearch.next(input)
-    //     console.log(input);
-    // }
+    sharedsearchResult = this.searchResult.asObservable()
+
     test(val:string) {
         console.log(`Hello letters ${val}`);
-
     }
 
     nextInputSearch(value: string) {
         this.inputSearch.next(value);
-        console.log(Islogged());
-
         if(value.length >= this.countOfLetters && Islogged()) {
-            this.ttt.fetchTodos(value).subscribe()
+            this.ttt.getSearchResults(value).subscribe(i => this.searchResult.next(i))
+        }
+        else if (value.length === 0) {
+            this.searchResult.next([])
         }
     }
 

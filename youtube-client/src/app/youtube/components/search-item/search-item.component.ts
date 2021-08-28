@@ -1,27 +1,37 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 
 import { Observable } from 'rxjs';
-import { response } from 'src/app/response';
 import { FilterParamsSortService } from 'src/app/youtube/services/filter-params-sort.service';
 
+import { InputSearchService } from '../../services/input-search.service';
 import { SortParamsService } from '../../services/sort-params.service';
 
 @Component({
     selector: 'app-search-item',
     templateUrl: './search-item.component.html',
     styleUrls: ['./search-item.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    // changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class SearchItemComponent implements OnInit {
 
-    form = response.items;
     dirrection$?: Observable<any>;
     type$?: Observable<any>;
     input$?: Observable<any>;
+    form$?: Observable<any>;
 
-    constructor(private sortServise:SortParamsService, private filterService:FilterParamsSortService, private route: ActivatedRoute) {}
+    constructor(
+        private sortServise:SortParamsService,
+        private filterService:FilterParamsSortService,
+        private items:InputSearchService
+        ) {}
+
+    updateResult() {
+        // this.items.sharedsearchResult.subscribe(i => console.log(i))
+        this.form$ = this.items.sharedsearchResult
+
+        console.log(this.form$)
+    }
 
     getSortParams() {
         this.dirrection$ = this.sortServise.sharedsortDirection
@@ -30,10 +40,12 @@ export class SearchItemComponent implements OnInit {
 
     getInputParams() {
         this.input$ = this.filterService.sharedfilterInput
+
     }
 
     ngOnInit() {
-       this.getSortParams()
-       this.getInputParams()
+        this.getSortParams()
+        this.getInputParams()
+        this.updateResult()
     }
 }

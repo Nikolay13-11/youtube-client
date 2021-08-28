@@ -1,3 +1,5 @@
+import { ISearchResult } from 'src/app/youtube/models/search-result.model';
+
 export const generateToken = (nickName:string) => {
     const tokenWithoutName = Math.random().toString(36).substring(2);
     const token = `${nickName}-${tokenWithoutName}`;
@@ -31,4 +33,11 @@ export const Islogged = ():boolean => {
     else {
         return false;
     }
+}
+
+export function generateIdsList(response:ISearchResult) {
+    let result = response.items.map(item => {
+        return item.id.videoId
+    })
+    return result.join(',');
 }
