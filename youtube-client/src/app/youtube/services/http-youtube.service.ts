@@ -11,16 +11,21 @@ import { IResultStatistic, ISearchResult } from '../models/search-result.model';
     providedIn: 'root'
 })
 export class HttpYoutubeService {
-    // ApiKey = 'AIzaSyBKAbqCLb7EN_kt7idMSUcilvkpNGa1_fQ';
-    BaseUrl = `https://www.googleapis.com/youtube/v3/search`;
+
+    BaseUrl = `https://www.googleapis.com/youtube/v3/`;
 
     constructor(private http: HttpClient) { }
 
     serchResult!: any[];
 
     private fetchSearchResult(value:string): Observable<ISearchResult> {
-        return this.http.get<ISearchResult>(this.BaseUrl, {
-            params: new HttpParams().set('q', value)
+        let params = new HttpParams()
+        params = params.append('type', 'video')
+        params = params.append('part', 'snippet')
+        params = params.append('maxResults', '16')
+        params = params.append('q', value)
+        return this.http.get<ISearchResult>(`${this.BaseUrl}search`, {
+            params
         })
     }
 
@@ -28,7 +33,7 @@ export class HttpYoutubeService {
         let params = new HttpParams()
         params = params.append('id', idsValue)
         params = params.append('part', 'snippet,statistics')
-        return this.http.get<IResultStatistic>(this.BaseUrl, {
+        return this.http.get<IResultStatistic>(`${this.BaseUrl}videos`, {
             params
         })
     }
