@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { BehaviorSubject } from 'rxjs';
+import { CheckStorage } from 'src/app/shared/helpers/helper';
 
 @Injectable({
   providedIn: 'root'
@@ -8,12 +9,12 @@ import { BehaviorSubject } from 'rxjs';
 export class AuthService {
 
     private LoginState = new BehaviorSubject(false);
-    private ButtonState = new BehaviorSubject('Login');
-    private Name = new BehaviorSubject('');
+    private ButtonName = new BehaviorSubject('Login');
+    private CurrentName = new BehaviorSubject('');
 
     sharedLoginState = this.LoginState.asObservable();
-    sharedButtonState = this.ButtonState.asObservable();
-    sharedName = this.Name.asObservable();
+    sharedButtonName = this.ButtonName.asObservable();
+    sharedCurrentName = this.CurrentName.asObservable();
 
     constructor() {}
 
@@ -22,10 +23,18 @@ export class AuthService {
         }
 
         nextButtonState(state:string) {
-            this.ButtonState.next(state)
+            this.ButtonName.next(state)
         }
-        nextName(value:string) {
-            this.Name.next(value)
+        nextCurrentName(value:string) {
+            this.CurrentName.next(value)
         }
 
+        updateStateAndName() {
+            const currentName = localStorage.key(0);
+            if(CheckStorage() > 0) {
+                this.ButtonName.next('Logout')
+                this.CurrentName.next(currentName!)
+                this.LoginState.next(true)
+            }
+        }
 }

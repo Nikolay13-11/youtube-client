@@ -1,6 +1,6 @@
 <div class="auth_container">
     <p class="login_text">Login</p>
-    <form #myForm="ngForm" class="login_form" id="loginForm" [formGroup]="form" (ngSubmit)="submit()">
+    <form #myForm="ngForm" class="login_form" id="loginForm" [formGroup]="form" (ngSubmit)="submitLoginForm()">
         <input type="text" placeholder="Login" formControlName="userName">
         <input type="password" placeholder="Password" formControlName="password">
         <button type="submit" class="login_form_button" [disabled]="form.invalid">Login</button>

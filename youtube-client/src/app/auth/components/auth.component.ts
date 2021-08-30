@@ -14,7 +14,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class AuthComponent implements OnInit {
 
-    constructor(private router: Router, private log: AuthService){ }
+    constructor(private router: Router, private authService: AuthService){ }
 
     form!: FormGroup;
     userName: string = '';
@@ -28,14 +28,14 @@ export class AuthComponent implements OnInit {
         })
     }
 
-    submit() {
+    submitLoginForm() {
         this.formValues = { ...this.form.value }
-        let name = this.formValues?.userName
-        addToStorage(name!.replace(/\s/g, ''))
+        let nameToStorage = this.formValues?.userName
+        addToStorage(nameToStorage!.replace(/\s/g, ''))
         this.router.navigate(['/main'])
-        this.log.nextLoginState(true)
-        this.log.nextButtonState('Logout')
-        this.log.nextName(name!)
+        this.authService.nextLoginState(true)
+        this.authService.nextButtonState('Logout')
+        this.authService.nextCurrentName(name!)
         this.form.reset()
     }
 }

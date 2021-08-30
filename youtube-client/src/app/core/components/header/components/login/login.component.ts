@@ -13,38 +13,42 @@ import { SearchStateService } from 'src/app/youtube/services/search-state.servic
 })
 export class LoginComponent implements OnInit {
 
-    constructor(private router:Router, private log: AuthService, private state:SearchStateService) {}
-    lofStateFromService$?: Observable<string>
-    LogState = '';
-    State$?:Observable<boolean>;
+    constructor(private router:Router, private authService: AuthService, private state:SearchStateService) {}
+    buttonActionName$?: Observable<string>
+    loginState$?:Observable<boolean>;
     UserName$?:Observable<string>
 
     checkState() {
-        this.lofStateFromService$ = this.log.sharedButtonState;
+        this.buttonActionName$ = this.authService.sharedButtonName;
     }
 
-    upgradeState() {
-        this.State$ = this.log.sharedLoginState
+    updatesharedButtonName() {
+        this.loginState$ = this.authService.sharedLoginState
     }
 
-    upgradeUserName() {
-        this.UserName$ = this.log.sharedName
+    updateUserName() {
+        this.UserName$ = this.authService.sharedCurrentName
+    }
+
+    updateCurrentStateLogin() {
+        this.authService.updateStateAndName()
     }
 
     ngOnInit () {
         this.checkState()
-        this.upgradeState()
-        this.upgradeUserName()
-        this.log.nextName('Your Name')
+        this.updatesharedButtonName()
+        this.updateUserName()
+        this.authService.nextCurrentName('Your Name')
+        this.updateCurrentStateLogin();
     }
 
     logOut() {
-        if(this.State$) {
+        if(this.loginState$) {
             this.router.navigate([''])
             ClearStorage()
-            this.log.nextLoginState(false)
-            this.log.nextName('Your Name')
-            this.log.nextButtonState('Login');
+            this.authService.nextLoginState(false)
+            this.authService.nextCurrentName('Your Name')
+            this.authService.nextButtonState('Login');
             this.state.nextState(false)
         }
     }

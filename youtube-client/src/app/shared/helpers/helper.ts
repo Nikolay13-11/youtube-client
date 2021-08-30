@@ -42,3 +42,4 @@ export function generateIdsList(response:ISearchResult) {
     return result.join(',');
 }
 
+

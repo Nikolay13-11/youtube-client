@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-
-import { HttpYoutubeService } from './youtube/services/http-youtube.service';
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'app-root',
@@ -8,31 +6,6 @@ import { HttpYoutubeService } from './youtube/services/http-youtube.service';
     styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent {
 
-
-    loading = false
-
-    constructor(private todoService: HttpYoutubeService) { }
-
-
-    ngOnInit() {
-        // this.fetchTodos();
-        // this.fetchStatistic();
-    }
-
-    // fetchTodos() {
-    //     this.todoService.fetchTodos()
-    //     .subscribe(item => {
-    //         console.log(item);
-
-    //     })
-    // }
-    // fetchStatistic() {
-    //     this.todoService.fetchStatistic()
-    //         .subscribe(item => {
-    //             console.log(item);
-
-    //         })
-    // }
 }
