@@ -3,6 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { createCustomCard } from 'src/app/redux/actions/customCards.actions';
+import { appState } from 'src/app/redux/app.state';
+import ICustomCard from '../../models/custom-card.model';
 
 
 @Component({
@@ -20,7 +22,8 @@ export class AdminComponent implements OnInit{
     formValues?:any;
 
 
-  constructor(private store: Store) { }
+
+  constructor(private store: Store<ICustomCard>) { }
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -33,14 +36,16 @@ export class AdminComponent implements OnInit{
 
   submitAdminForm() {
     this.formValues = { ...this.form.value }
-    this.form.reset()
+    let card: ICustomCard = {
+        title: this.formValues.title,
+        discription: this.formValues.discription,
+        img: this.formValues.img,
+        link: this.formValues.link,
+    }
     this.store.dispatch(createCustomCard({
-        newCustomCard:{
-            title: this.formValues.title,
-            discription: this.formValues.discription,
-            img: this.formValues.img,
-            link: this.formValues.link
-        }
+        newCustomCard:{ ...card }
     }))
+    this.form.reset()
+
   }
 }

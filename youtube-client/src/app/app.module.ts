@@ -35,7 +35,10 @@ const INTERCEPTOR_PROVIDER: Provider = {
         NoopAnimationsModule,
         AuthModule,
         HttpClientModule,
-        StoreModule.forRoot(customCardsReducer)
+        StoreModule.forRoot({
+            customCards: customCardsReducer,
+            youtubeVideos: youtubeVideosReducer,
+        })
     ],
     providers: [
         LoginGuard,
