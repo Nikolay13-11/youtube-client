@@ -15,6 +15,9 @@ import { HttpYoutubeService } from './services/http-youtube.service';
 import { YoutubeRoutingModule } from './youtube-routing.module';
 import { AdminComponent } from './components/admin/admin.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
+import { customCardsReducer } from '../redux/reducers/customCards.reducer';
+import { youtubeVideosReducer } from '../redux/reducers/youtubeVideos.reducer';
 
 @NgModule({
     declarations: [
