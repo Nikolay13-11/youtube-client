@@ -1,0 +1,10 @@
+<div class="admin-form_container">
+    <p>Create new card</p>
+    <form #myForm="ngForm" class="admin_form" id="adminForm" [formGroup]="form" (ngSubmit)="submitAdminForm()">
+        <input type="text" placeholder="Title" formControlName="title">
+        <input type="text" placeholder="Discription" formControlName="discription">
+        <input type="text" placeholder="Img" formControlName="img">
+        <input type="text" placeholder="Link video" formControlName="link">
+        <button type="submit" class="admin_form_button" [disabled]="form.invalid">Create card</button>
+    </form>
+</div>

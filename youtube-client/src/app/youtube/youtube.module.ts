@@ -13,6 +13,8 @@ import { SortByInputPipe } from './pipes/sort-by-input.pipe';
 import { FilterParamsSortService } from './services/filter-params-sort.service';
 import { HttpYoutubeService } from './services/http-youtube.service';
 import { YoutubeRoutingModule } from './youtube-routing.module';
+import { AdminComponent } from './components/admin/admin.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -23,13 +25,16 @@ import { YoutubeRoutingModule } from './youtube-routing.module';
         SortComponent,
         SortByButtonPipe,
         SortByInputPipe,
-        ChangeBorderColorDirective
+        ChangeBorderColorDirective,
+        AdminComponent
 
     ],
     imports: [
         CommonModule,
         YoutubeRoutingModule,
         CoreModule,
+        FormsModule,
+        ReactiveFormsModule,
     ],
     exports: [
         MainComponent

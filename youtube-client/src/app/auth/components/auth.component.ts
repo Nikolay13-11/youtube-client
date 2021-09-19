@@ -35,7 +35,7 @@ export class AuthComponent implements OnInit {
         this.router.navigate(['/main'])
         this.authService.nextLoginState(true)
         this.authService.nextButtonState('Logout')
-        this.authService.nextCurrentName(name!)
+        this.authService.nextCurrentName(nameToStorage)
         this.form.reset()
     }
 }

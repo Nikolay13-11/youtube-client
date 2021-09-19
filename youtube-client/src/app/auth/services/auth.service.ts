@@ -10,7 +10,7 @@ export class AuthService {
 
     private LoginState = new BehaviorSubject(false);
     private ButtonName = new BehaviorSubject('Login');
-    private CurrentName = new BehaviorSubject('');
+    private CurrentName = new BehaviorSubject<string | undefined>('');
 
     sharedLoginState = this.LoginState.asObservable();
     sharedButtonName = this.ButtonName.asObservable();
@@ -25,9 +25,12 @@ export class AuthService {
         nextButtonState(state:string) {
             this.ButtonName.next(state)
         }
-        nextCurrentName(value:string) {
+        nextCurrentName(value:string | undefined) {
             this.CurrentName.next(value)
+            console.log(value)
         }
+
+
 
         updateStateAndName() {
             const currentName = localStorage.key(0);

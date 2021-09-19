@@ -15,7 +15,6 @@ import { AuthComponent } from './components/auth.component';
     FormsModule,
     AuthRoutingModule,
     MatInputModule,
-    FormsModule,
     ReactiveFormsModule,
   ],
   exports: [AuthComponent]

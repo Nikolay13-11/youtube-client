@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/auth/services/auth.service';
@@ -13,10 +13,14 @@ import { SearchStateService } from 'src/app/youtube/services/search-state.servic
 })
 export class LoginComponent implements OnInit {
 
-    constructor(private router:Router, private authService: AuthService, private state:SearchStateService) {}
+    constructor(
+        private router:Router,
+        private authService: AuthService,
+        private state:SearchStateService,
+        ) {}
     buttonActionName$?: Observable<string>
     loginState$?:Observable<boolean>;
-    UserName$?:Observable<string>
+    UserName$?:Observable<string | undefined>
 
     checkState() {
         this.buttonActionName$ = this.authService.sharedButtonName;
@@ -40,6 +44,12 @@ export class LoginComponent implements OnInit {
         this.updateUserName()
         this.authService.nextCurrentName('Your Name')
         this.updateCurrentStateLogin();
+    }
+
+    closeAdmin() {
+        if(this.router.url === '/main/admin') {
+            this.router.navigate(['/main'])
+        }
     }
 
     logOut() {
