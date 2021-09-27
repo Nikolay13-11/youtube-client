@@ -23,7 +23,7 @@ export class AdminComponent implements OnInit{
 
 
 
-  constructor(private store: Store<ICustomCard>) { }
+  constructor(private store: Store) { }
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -42,10 +42,26 @@ export class AdminComponent implements OnInit{
         img: this.formValues.img,
         link: this.formValues.link,
     }
-    this.store.dispatch(createCustomCard({
-        newCustomCard:{ ...card }
-    }))
+    this.store.dispatch(createCustomCard(
+        {
+            newCustomCard: {
+               ...card
+              },}
+    )
+    )
     this.form.reset()
 
   }
 }
+
+
+// this.store$.dispatch(createCustomCard(
+//     {
+//         newCustomCard: {
+//           title: 'Hello',
+//           discription: 'Hello world fro my first store',
+//           img: '..//..//.///Hello',
+//           link: '/c,c,c',
+//         },
+//       }
+// ))

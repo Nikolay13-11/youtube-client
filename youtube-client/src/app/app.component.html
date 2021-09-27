@@ -1,2 +1,4 @@
 <app-header></app-header>
+<h3>User Object: {{test$ | async | json}}</h3>
+<button (click)="updateUser()">Update User</button>
 <router-outlet></router-outlet>
