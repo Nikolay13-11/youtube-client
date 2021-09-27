@@ -1,16 +1,16 @@
-interface Action {
-    type: string;
-    payload: any;
-}
+// interface Action {
+//     type: string;
+//     payload: any;
+// }
 
-// import { Action } from "@ngrx/store";
+// // import { Action } from "@ngrx/store";
 
 
-export class addCustomCard implements Action {
-   readonly type = 'ADD_TO_CARDS';
+// export class addCustomCard implements Action {
+//    readonly type = 'ADD_TO_CARDS';
 
-   constructor(public  payload: any) {}
+//    constructor(public  payload: any) {}
 
-}
+// }
 
-export type cardAction = addCustomCard;
+// export type cardAction = addCustomCard;

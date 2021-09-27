@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { createCustomCard } from 'src/app/redux/actions/customCards.actions';
-import { appState } from 'src/app/redux/app.state';
-import ICustomCard from '../../models/custom-card.model';
 
+import { createCustomCard } from 'src/app/redux/actions/customCards.actions';
+
+import ICustomCard from '../../models/custom-card.model';
 
 @Component({
   selector: 'app-admin',
@@ -54,14 +53,3 @@ export class AdminComponent implements OnInit{
   }
 }
 
-
-// this.store$.dispatch(createCustomCard(
-//     {
-//         newCustomCard: {
-//           title: 'Hello',
-//           discription: 'Hello world fro my first store',
-//           img: '..//..//.///Hello',
-//           link: '/c,c,c',
-//         },
-//       }
-// ))

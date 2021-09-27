@@ -1,8 +1,4 @@
-import { createAction, props } from "@ngrx/store"
-import { ISearchItem } from "src/app/youtube/models/search-item.model";
-import { ISearchResult } from "src/app/youtube/models/search-result.model"
-
-
+import { createAction, props } from '@ngrx/store';
 
 // export const fetchSearchResults = createAction(
 //     '[MAIN PAGE] FETCH YOUTUBE VIDEOS',
@@ -10,6 +6,6 @@ import { ISearchResult } from "src/app/youtube/models/search-result.model"
 
 export const updateSearchResultsSuccessfully = createAction(
     '[MAIN PAGE] UPDATE YOUTUBE VIDEOS SUCCESSFULLY',
-    props<{ searchResults: ISearchItem[] }>(),
+    props<{ searchResults: any}>(),
 );
 

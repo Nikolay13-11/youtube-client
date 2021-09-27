@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { CoreModule } from '../core/core.module';
+import { AdminComponent } from './components/admin/admin.component';
 import { DetailComponent } from './components/detail/detail.component';
 import { SearchItemComponent } from './components/search-item/search-item.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
@@ -13,11 +15,6 @@ import { SortByInputPipe } from './pipes/sort-by-input.pipe';
 import { FilterParamsSortService } from './services/filter-params-sort.service';
 import { HttpYoutubeService } from './services/http-youtube.service';
 import { YoutubeRoutingModule } from './youtube-routing.module';
-import { AdminComponent } from './components/admin/admin.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { StoreModule } from '@ngrx/store';
-import { customCardsReducer } from '../redux/reducers/customCards.reducer';
-import { youtubeVideosReducer } from '../redux/reducers/youtubeVideos.reducer';
 
 @NgModule({
     declarations: [

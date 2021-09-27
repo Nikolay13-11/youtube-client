@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import { createCustomCard } from './redux/actions/customCards.actions';
-import { selectCustomCards, selectCustomCardsCount } from './redux/selectors/customCards.selector';
+
+import { selectCustomCards } from './redux/selectors/customCards.selector';
+import { selectYoutubeVideos } from './redux/selectors/youtubeVideos.selector';
 
 @Component({
     selector: 'app-root',
@@ -11,7 +12,9 @@ import { selectCustomCards, selectCustomCardsCount } from './redux/selectors/cus
 
 export class AppComponent implements OnInit {
 
-    test$ = this.store$.select(selectCustomCards)
+    test$ = this.store$.pipe(select(selectCustomCards))
+    test1$ = this.store$.pipe(select(selectYoutubeVideos))
+    // test1$ = this.store$.select(selectYoutubeVideos)
 
     constructor(
         private store$: Store
@@ -19,6 +22,7 @@ export class AppComponent implements OnInit {
 
     updateUser() {
         console.log(this.test$)
+        console.log(this.test1$)
     }
 
         ngOnInit() {
