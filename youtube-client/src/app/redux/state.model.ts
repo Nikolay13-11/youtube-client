@@ -1,5 +1,5 @@
 import  ICustomCard  from "../youtube/models/custom-card.model";
-import { ISearchItem } from "../youtube/models/search-item.model";
+import { IStatisticItem } from "../youtube/models/search-item.model";
 
 export interface AppState {
     customCards: CustomCardsState;
@@ -12,7 +12,7 @@ export interface CustomCardsState {
 
 
 export interface YoutubeVideosState {
-    youtubeVideos: ISearchItem [],
+    youtubeVideos: IStatisticItem [],
 }
 
 export const initialCustomCardsState: CustomCardsState = {
@@ -20,7 +20,7 @@ export const initialCustomCardsState: CustomCardsState = {
 }
 
 export const initialYoutubeVideosState: YoutubeVideosState = {
-    youtubeVideos: []
+    youtubeVideos: [],
 }
 
 export const initialAppState: AppState = {
@@ -28,19 +28,4 @@ export const initialAppState: AppState = {
     youtubeVideos: initialYoutubeVideosState,
 }
 
-
-// import { IResultStatistic } from '../youtube/models/search-result.model';
-// interface InewCard {
-//     title: string;
-//     description: string;
-//     image: string;
-//     link: string
-// }
-
-// export interface State {
-//     apiResult: IResultStatistic;
-//     customCards: InewCard[];
-// }
-
-// export const initialState:State = {} as State;
 

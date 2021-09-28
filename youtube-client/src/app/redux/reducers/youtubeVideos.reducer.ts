@@ -8,6 +8,6 @@ export const youtubeVideosReducer = createReducer(
   on(updateSearchResultsSuccessfully,
     (state, { searchResults }) => ({
         ...state,
-        youtubeVideos: [...searchResults]
+        youtubeVideos: [ ...searchResults ]
     }))
 );

@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { BehaviorSubject } from 'rxjs';
 import { updateSearchResultsSuccessfully } from 'src/app/redux/actions/youtubeVideos.actions';
 import { Islogged } from 'src/app/shared/helpers/helper';
+import { IStatisticItem } from '../models/search-item.model';
 
 import { HttpYoutubeService } from './http-youtube.service';
 
@@ -25,14 +26,9 @@ export class InputSearchService {
     nextInputSearch(value: string) {
         this.inputSearch.next(value);
         if(value.length >= this.countOfLetters && Islogged()) {
-            this.http.getSearchResults(value).subscribe(i =>
+            this.http.getSearchResults(value).subscribe((i:IStatisticItem[]) =>
                 {
-                    this.store.dispatch(updateSearchResultsSuccessfully(
-                        {
-                            searchResults:( {
-                               ...i
-                              }),}
-                    )
+                    this.store.dispatch(updateSearchResultsSuccessfully({searchResults: i})
                     )
 
                 this.http.getSearchResults(value).subscribe(i => this.searchResult.next(i))

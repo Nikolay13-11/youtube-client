@@ -65,3 +65,6 @@ export interface IStatisticItem {
     snippet: ISearchItemStatisticSnippet;
     statistics: IStatisticSearchItem;
 }
+
+
+

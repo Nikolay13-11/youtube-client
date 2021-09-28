@@ -1,4 +1,5 @@
 <div class="admin-form_container">
+    <a routerLink='/main'>X</a>
     <p>Create new card</p>
     <form #myForm="ngForm" class="admin_form" id="adminForm" [formGroup]="form" (ngSubmit)="submitAdminForm()">
         <input type="text" placeholder="Title" formControlName="title">

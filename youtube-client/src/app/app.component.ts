@@ -10,23 +10,7 @@ import { selectYoutubeVideos } from './redux/selectors/youtubeVideos.selector';
     styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent {
 
-    test$ = this.store$.pipe(select(selectCustomCards))
-    test1$ = this.store$.pipe(select(selectYoutubeVideos))
-    // test1$ = this.store$.select(selectYoutubeVideos)
-
-    constructor(
-        private store$: Store
-    ) { }
-
-    updateUser() {
-        console.log(this.test$)
-        console.log(this.test1$)
-    }
-
-        ngOnInit() {
-            console.log(this.test$)
-        }
 }
 

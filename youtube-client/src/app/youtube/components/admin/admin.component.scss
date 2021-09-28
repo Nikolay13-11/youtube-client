@@ -9,6 +9,14 @@
     width: 300px;
     height: 340px;
     margin: 30px auto;
+    position: relative;
+    a {
+    position: absolute;
+    top: 24px;
+    right: 40px;
+    color: red;
+    text-decoration: none;
+    }
     p {
         text-align: center;
         margin-top: 10px;

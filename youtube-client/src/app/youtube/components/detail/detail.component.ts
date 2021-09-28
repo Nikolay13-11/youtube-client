@@ -1,7 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Store } from '@ngrx/store';
 
 import { Observable, Subscription } from 'rxjs';
+import { selectYoutubeVideos } from 'src/app/redux/selectors/youtubeVideos.selector';
 
 import { IStatisticItem } from '../../models/search-item.model';
 import { InputSearchService } from '../../services/input-search.service';
@@ -13,24 +15,22 @@ import { InputSearchService } from '../../services/input-search.service';
 })
 export class DetailComponent implements OnInit, OnDestroy{
     router:ActivatedRoute;
-    serchResultItems$?: Observable<any[]>;
     sub?: Subscription;
+    searchResult$:Observable<any> = this.store$.select(selectYoutubeVideos)
 
-    constructor(router:ActivatedRoute, private resultSearch:InputSearchService,) {
+    constructor(
+        router:ActivatedRoute,
+        private store$: Store
+        ) {
         this.router = router
-    }
-
-    updateResult() {
-        this.serchResultItems$ = this.resultSearch.sharedsearchResult
     }
 
     detailSearchItem!: IStatisticItem;
 
     ngOnInit() {
-        this.updateResult();
         const  { id }  = this.router.snapshot.params;
-        this.sub = this.serchResultItems$?.subscribe(i => {
-        this.detailSearchItem = i.find(i => i.id === id)
+        this.sub = this.searchResult$?.subscribe(i => {
+        this.detailSearchItem = i.find((i:any) => i.id === id)
         })
     }
 

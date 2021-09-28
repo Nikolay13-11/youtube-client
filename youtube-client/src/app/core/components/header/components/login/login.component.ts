@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
         private router:Router,
         private authService: AuthService,
         private state:SearchStateService,
+        private activeRouter: ActivatedRoute,
         ) {}
     buttonActionName$?: Observable<string>
     loginState$?:Observable<boolean>;

@@ -1,11 +1,12 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { IStatisticItem } from '../models/search-item.model';
 
 @Pipe({
   name: 'sortByInput'
 })
 export class SortByInputPipe implements PipeTransform {
 
-    transform(value: any[], filterValue:string) {
+    transform(value: IStatisticItem[], filterValue:string) {
 
         if (!filterValue) {
             return value;

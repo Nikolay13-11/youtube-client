@@ -1,4 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { IStatisticItem } from '../models/search-item.model';
 
 export type SortOrder = 'asc' | 'desc';
 

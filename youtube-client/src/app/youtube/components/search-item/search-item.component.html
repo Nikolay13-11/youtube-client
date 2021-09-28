@@ -1,27 +1,33 @@
-<div *ngFor="let item of (form$ | async) | sortByButton:(dirrection$ | async):(type$ | async) | sortByInput:(input$ | async)" class="item_container" appChangeBorderColor [publicDate]="item.snippet.publishedAt">
-    <img class="img_main_card" src="{{item.snippet.thumbnails.medium.url}}" alt="">
-    <div class="stat_block">
-        <div class="stat_item">
-            <img src="../../../../assets/icons/viewed.svg" alt="">
-            <p>{{item.statistics.viewCount}}</p>
-        </div>
-        <div class="stat_item">
-            <img src="../../../../assets/icons/liked.svg" alt="">
-            <p>{{item.statistics.likeCount}}</p>
-        </div>
-        <div class="stat_item">
-            <img src="../../../../assets/icons/dislike.svg" alt="">
-            <p>{{item.statistics.dislikeCount}}</p>
-        </div>
-        <div class="stat_item">
-            <img src="../../../../assets/icons/comments.svg" alt="">
-            <p>{{item.statistics.commentCount}}</p>
-        </div>
+<div class="cardsContainer" style="display: flex; flex-wrap: wrap;">
+    <div *ngFor="let i of (cards$ | async)" class="item_container">
+        <img [src]="i.img" class="card_img">
+        <span>{{i.title}}</span>
+        <span>{{i.discription}}</span>
     </div>
-    <p class="name_video">{{item.snippet.title}}</p>
-    <button id={{item.id}} routerLink='{{item.id}}'>more...</button>
-</div>
-<div>
+    <div *ngFor="let item of (searchResult$ | async) | sortByButton:(dirrection$ | async):(type$ | async) | sortByInput:(input$ | async)" class="item_container" appChangeBorderColor [publicDate]="item.snippet.publishedAt">
+        <img class="img_main_card" src="{{item.snippet.thumbnails.medium.url}}" alt="">
+        <div class="stat_block">
+            <div class="stat_item">
+                <img src="../../../../assets/icons/viewed.svg" alt="">
+                <p>{{item.statistics.viewCount}}</p>
+            </div>
+            <div class="stat_item">
+                <img src="../../../../assets/icons/liked.svg" alt="">
+                <p>{{item.statistics.likeCount}}</p>
+            </div>
+            <div class="stat_item">
+                <img src="../../../../assets/icons/dislike.svg" alt="">
+                <p>{{item.statistics.dislikeCount}}</p>
+            </div>
+            <div class="stat_item">
+                <img src="../../../../assets/icons/comments.svg" alt="">
+                <p>{{item.statistics.commentCount}}</p>
+            </div>
+        </div>
+        <p class="name_video">{{item.snippet.title}}</p>
+        <button id={{item.id}} routerLink='{{item.id}}'>more...</button>
+    </div>
+
 </div>
 
 

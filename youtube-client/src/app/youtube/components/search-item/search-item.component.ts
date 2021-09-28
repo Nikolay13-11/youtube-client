@@ -1,9 +1,11 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 
 import { Observable } from 'rxjs';
+import { selectCustomCards } from 'src/app/redux/selectors/customCards.selector';
+import { selectYoutubeVideos } from 'src/app/redux/selectors/youtubeVideos.selector';
 import { FilterParamsSortService } from 'src/app/youtube/services/filter-params-sort.service';
 
-import { InputSearchService } from '../../services/input-search.service';
 import { SortParamsService } from '../../services/sort-params.service';
 
 @Component({
@@ -18,17 +20,17 @@ export class SearchItemComponent implements OnInit {
     dirrection$?: Observable<any>;
     type$?: Observable<any>;
     input$?: Observable<any>;
-    form$?: Observable<any>;
+
+    cards$:Observable<any> = this.store$.select(selectCustomCards)
+    searchResult$:Observable<any> = this.store$.select(selectYoutubeVideos)
+
 
     constructor(
         private sortServise:SortParamsService,
         private filterService:FilterParamsSortService,
-        private items:InputSearchService,
+        private store$: Store
         ) {}
 
-    updateResult() {
-        this.form$ = this.items.sharedsearchResult;
-    }
 
     getSortParams() {
         this.dirrection$ = this.sortServise.sharedsortDirection;
@@ -42,6 +44,5 @@ export class SearchItemComponent implements OnInit {
     ngOnInit() {
         this.getSortParams();
         this.getInputParams();
-        this.updateResult();
     }
 }

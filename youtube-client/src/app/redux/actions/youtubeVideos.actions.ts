@@ -1,11 +1,8 @@
 import { createAction, props } from '@ngrx/store';
-
-// export const fetchSearchResults = createAction(
-//     '[MAIN PAGE] FETCH YOUTUBE VIDEOS',
-// );
+import { IStatisticItem } from 'src/app/youtube/models/search-item.model';
 
 export const updateSearchResultsSuccessfully = createAction(
     '[MAIN PAGE] UPDATE YOUTUBE VIDEOS SUCCESSFULLY',
-    props<{ searchResults: any}>(),
+    props<{ searchResults: IStatisticItem[] }>(),
 );
 
