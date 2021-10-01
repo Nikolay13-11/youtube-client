@@ -4,8 +4,8 @@ import { Store } from '@ngrx/store';
 import { BehaviorSubject } from 'rxjs';
 import { updateSearchResultsSuccessfully } from 'src/app/redux/actions/youtubeVideos.actions';
 import { Islogged } from 'src/app/shared/helpers/helper';
-import { IStatisticItem } from '../models/search-item.model';
 
+import { IStatisticItem } from '../models/search-item.model';
 import { HttpYoutubeService } from './http-youtube.service';
 
 @Injectable({
@@ -30,16 +30,7 @@ export class InputSearchService {
                 {
                     this.store.dispatch(updateSearchResultsSuccessfully({searchResults: i})
                     )
-
-                this.http.getSearchResults(value).subscribe(i => this.searchResult.next(i))
-                }
-
-                )
-
-
-
-
-
+                })
         }
         else if (value.length === 0) {
             this.searchResult.next([])

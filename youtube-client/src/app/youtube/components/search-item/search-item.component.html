@@ -3,6 +3,7 @@
         <img [src]="i.img" class="card_img">
         <span>{{i.title}}</span>
         <span>{{i.discription}}</span>
+        <span>{{i.date | date:'medium'}}</span>
     </div>
     <div *ngFor="let item of (searchResult$ | async) | sortByButton:(dirrection$ | async):(type$ | async) | sortByInput:(input$ | async)" class="item_container" appChangeBorderColor [publicDate]="item.snippet.publishedAt">
         <img class="img_main_card" src="{{item.snippet.thumbnails.medium.url}}" alt="">

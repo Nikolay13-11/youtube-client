@@ -1,5 +1,5 @@
-import  ICustomCard  from "../youtube/models/custom-card.model";
-import { IStatisticItem } from "../youtube/models/search-item.model";
+import ICustomCard from '../youtube/models/custom-card.model';
+import { IStatisticItem } from '../youtube/models/search-item.model';
 
 export interface AppState {
     customCards: CustomCardsState;
@@ -12,7 +12,7 @@ export interface CustomCardsState {
 
 
 export interface YoutubeVideosState {
-    youtubeVideos: IStatisticItem [],
+    youtubeVideos: IStatisticItem []
 }
 
 export const initialCustomCardsState: CustomCardsState = {

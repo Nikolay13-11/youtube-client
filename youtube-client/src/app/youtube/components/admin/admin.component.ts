@@ -34,12 +34,16 @@ export class AdminComponent implements OnInit{
   }
 
   submitAdminForm() {
+      let date = new Date()
+      console.log(date)
+      console.log(typeof date)
     this.formValues = { ...this.form.value }
     let card: ICustomCard = {
         title: this.formValues.title,
         discription: this.formValues.discription,
         img: this.formValues.img,
         link: this.formValues.link,
+        date: date
     }
     this.store.dispatch(createCustomCard(
         {
