@@ -1,0 +1,29 @@
+.sort_container {
+    width: 100vw;
+    height: 50px;
+    background: #e5e5e5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+a {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+    margin: 10px;
+}
+
+.sort_by_word {
+    color: blue;
+    margin: 10px;
+}
+
+a:hover {
+    color: red;
+}
+
+input {
+    width: 149px;
+    height: 16px;
+}

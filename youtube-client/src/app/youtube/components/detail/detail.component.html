@@ -1,0 +1,30 @@
+<div class="container_detail">
+    <button class="button_back" [routerLink]="['/main']"></button>
+<div class="detail_card_container"  appChangeBorderColor [publicDate]="detailSearchItem.snippet.publishedAt">
+    <img src="{{detailSearchItem.snippet.thumbnails.medium.url}}" alt="" class="detail_img">
+    <div class="detail_container">
+        <p class="title_detail">{{detailSearchItem.snippet.title}}</p>
+        <p class="public_date">{{detailSearchItem.snippet.publishedAt | date}}</p>
+        <p class="description">Description:</p>
+        <p class="description_text">{{detailSearchItem.snippet.description}}</p>
+        <div class="statistic_block">
+            <div class="statistic_item">
+            <img src="../../../../assets/icons/viewed.svg" alt="">
+            <p>{{detailSearchItem.statistics.viewCount}}</p>
+        </div>
+        <div class="statistic_item">
+            <img src="../../../../assets/icons/liked.svg" alt="">
+            <p>{{detailSearchItem.statistics.likeCount}}</p>
+        </div>
+        <div class="statistic_item">
+            <img src="../../../../assets/icons/dislike.svg" alt="">
+            <p>{{detailSearchItem.statistics.dislikeCount}}</p>
+        </div>
+        <div class="statistic_item">
+            <img src="../../../../assets/icons/comments.svg" alt="">
+            <p>{{detailSearchItem.statistics.commentCount}}</p>
+        </div>
+        </div>
+    </div>
+</div>
+</div>

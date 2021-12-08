@@ -1,0 +1,9 @@
+<header class="header">
+    <div class="left_container">
+        <img src="../../assets/images/logo.png" class="logo" alt="logo">
+        <input type="text" class="input_search" placeholder="What are you want to find out?" [(ngModel)]="value"
+            (ngModelChange)=" updateSearchValue($event)">
+        <app-button-setting></app-button-setting>
+    </div>
+    <app-login></app-login>
+</header>

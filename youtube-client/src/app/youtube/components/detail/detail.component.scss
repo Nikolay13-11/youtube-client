@@ -1,0 +1,94 @@
+.container_detail {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 50px;
+}
+.button_back {
+    width: 32px;
+    height: 32px;
+    background: #2f80ed;
+    filter: drop-shadow(-2px 2px 4px rgba(47, 128, 237, 0.25));
+    border-radius: 5px 0px 0px 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.button_back::before {
+    content: "<";
+    color: #ffffff;
+    font-size: 30px;
+}
+
+.detail_card_container {
+    width: 1165px;
+    height: 461px;
+    background: #e5e5e5;
+    display: flex;
+    background: #e5e5e5;
+    box-shadow: 5px 5px 20px rgba(51, 51, 51, 0.25);
+    border-radius: 0px 5px 5px 0px;
+}
+
+.detail_img {
+    width: 729px;
+    height: 461px;
+}
+
+.detail_container {
+    width: 436px;
+    height: 461px;
+    margin: 20px 20px 20px 30px;
+}
+
+.title_detail {
+    width: 248px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    color: #000000;
+}
+
+.public_date {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 12px;
+    color: #828282;
+    text-align: right;
+}
+
+.description {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+}
+
+.description_text {
+    width: 365px;
+    height: 150px;
+    overflow-y: auto;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    color: #828282;
+}
+
+.statistic_block {
+    display: flex;
+}
+
+.statistic_item {
+    display: flex;
+    margin: 8px;
+}

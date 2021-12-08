@@ -1,0 +1,26 @@
+.error_container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: calc(100vh - 80px);
+    justify-content: center;
+}
+
+.error_container > * {
+    margin: 10px;
+}
+.error_text {
+    width: 234px;
+    height: 56px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    color: #828282;
+}
+
+.error_picture {
+    width: 100px;
+    height: 100px;
+}

@@ -1,0 +1,25 @@
+.login_container {
+    display: flex;
+    align-items: center;
+}
+.login_btn {
+    width: 29px;
+    height: 29px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    background-image: url(../../../../../../assets/images/login.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.log_btn {
+    width: 80px;
+    height: 30px;
+    background: #2f80ed;
+    border-radius: 5px;
+    filter: drop-shadow(2px 0px 4px #2f80ed);
+    border: none;
+    cursor: pointer;
+    margin-left: 25px;
+}
